@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Hello, I'm Halyna Hryn",
+    "subtitle": "Fullstack Developer",
+    "cta": "Contact Me"
+  }
+}
