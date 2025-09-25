@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const Container = styled.div`
   display: flex;
-  height: calc(100vh - 70px);
+  height: 100vh;
   padding: 0 50px;
   position: relative;
   overflow: hidden;
@@ -27,15 +27,38 @@ export const Title = styled.h1`
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 20px;
-  color: ${({ theme }) => theme.text};
+
+  color: ${({ theme }) => theme.background};
+  text-shadow: 
+    -1px -1px 0 ${({ theme }) => theme.text},
+    1px -1px 0 ${({ theme }) => theme.text},
+    -1px  1px 0 ${({ theme }) => theme.text},
+    1px  1px 0 ${({ theme }) => theme.text};
+
 `;
 
 export const Subtitle = styled.h2`
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-family: 'Roboto', sans-serif;
+  color: ${({ theme }) => theme.primary};
+`;
+
+export const Tagline = styled.p`
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  max-width: 600px;
   color: ${({ theme }) => theme.text};
+`;
+
+export const CTAGroup = styled.div`
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 `;
 
 export const CTAButton = styled.button`
@@ -45,8 +68,9 @@ export const CTAButton = styled.button`
   border-radius: 16px;
   border: none;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.highlight};
-  color: #fff;
+  background-color: ${({ theme }) => theme.secondtext};
+  color: ${({ theme }) => theme.text};
+  border: solid 1px ${({ theme }) => theme.highlight};
   font-family: 'Roboto', sans-serif;
   transition: all 0.3s ease, transform 0.2s ease;
 

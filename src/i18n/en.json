@@ -6,8 +6,53 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Hello, I'm Halyna Hryn",
-    "subtitle": "Fullstack Developer",
-    "cta": "Contact Me"
+    "title": "Halyna Hryn",
+    "subtitle": "Full-stack Developer",
+    "tagline": "I love turning ideas into clean, scalable code using React, TypeScript, and modern web technologies.",
+    "contactBtn": "Get in Touch",
+    "projectsBtn": "View My Work"
+  },
+  "about": {
+    "title": "About Me",
+    "description": [
+      "Full-stack web developer with a strong focus on frontend using React, TypeScript, and Node.js.",
+      "Build modern, responsive websites that look great on any device.",
+      "Passionate about writing clean, scalable, and maintainable code.",
+      "Experienced in collaborating effectively in teams and with software testers.",
+      "Constantly improving my skills and quick to learn new technologies.",
+      "Enjoy collaborating on exciting projects and sharing knowledge.",
+      "Outside of coding, I enjoy coffee, reading, traveling, and exploring new ideas."
+    ],
+    "tabs": [
+      { "key": "education", "label": "Education" },
+      { "key": "certificates", "label": "Certificates" },
+      { "key": "languages", "label": "Languages" }
+    ],
+    "education": {
+      "issuer": "University of the People",
+      "title": "Bachelor's Degree in Computer Science",
+      "info": "2021, GPA: 3.69 / 4.0"
+    },
+    "certificates": [
+      {
+        "issuer": "GoIT",
+        "title": "Fullstack Developer",
+        "info": "2023"
+      }
+    ],
+    "languages": [
+      "English – Advanced",
+      "Ukrainian – Native",
+      "Russian – Native"
+    ],
+    "skills": "Skills",
+    "technologies": [
+      "Frontend",
+      "Backend",
+      "Databases",
+      "Styles",
+      "Documentation",
+      "Utilities"
+    ]
   }
 }

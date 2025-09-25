@@ -10,27 +10,14 @@ import Projects from "./pages/Projects/Projects";
 import Contact from "./pages/Contact/Contact";
 
 const App: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDark, setIsDark] = useState(true);
 
-  const toggleTheme = () => setIsDarkMode((prev) => !prev);
+  const toggleTheme = () => setIsDark((prev) => !prev);
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <Router>
-        <Layout toggleTheme={toggleTheme} isDarkMode={isDarkMode}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route
-              path="*"
-              element={<h1 style={{ textAlign: "center", marginTop: "100px" }}>404 - Page Not Found</h1>}
-            />
-          </Routes>
-        </Layout>
-      </Router>
+        <Layout toggleTheme={toggleTheme} isDark={isDark}/>
     </ThemeProvider>
   );
 };

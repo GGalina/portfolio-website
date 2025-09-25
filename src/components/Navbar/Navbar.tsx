@@ -1,36 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Logo from "../Logo/Logo";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
-import { useTranslation } from "react-i18next";
-import { Nav, NavLinks, ToggleContainer } from "./Navbar.styles";
+import { SectionRefs } from "../../@types/sections";
+import { Nav, NavLinks, ToggleContainer, NavLinkButton } from "./Navbar.styles";
 
 interface NavbarProps {
-  isDarkMode: boolean;
+  isDark: boolean;
   toggleTheme: () => void;
+  sectionRefs: SectionRefs;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
+const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme, sectionRefs }) => {
   const { t } = useTranslation();
 
+  const navItems = [
+    { id: "home", label: t("nav.home") },
+    { id: "about", label: t("nav.about") },
+    { id: "projects", label: t("nav.projects") },
+    { id: "contact", label: t("nav.contact") },
+  ];
+
+  // Safe scroll function that handles null refs
+  const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <Nav isDark={isDarkMode}>
-      {/* Logo on the left */}
+    <Nav isDark={isDark}>
       <Logo />
 
-      {/* Navigation links */}
-      <NavLinks isDark={isDarkMode}>
-        <Link to="/">{t("nav.home")}</Link>
-        <Link to="/about">{t("nav.about")}</Link>
-        <Link to="/projects">{t("nav.projects")}</Link>
-        <Link to="/contact">{t("nav.contact")}</Link>
+      <NavLinks>
+        {navItems.map((item) => (
+          <NavLinkButton
+            key={item.id}
+            onClick={() => scrollToSection(sectionRefs[item.id as keyof SectionRefs])}
+          >
+            {item.label}
+          </NavLinkButton>
+        ))}
       </NavLinks>
 
-      {/* Right-aligned toggles */}
       <ToggleContainer>
-        <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-        <LanguageToggle isDark={isDarkMode} />
+        <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+        <LanguageToggle isDark={isDark} />
       </ToggleContainer>
     </Nav>
   );

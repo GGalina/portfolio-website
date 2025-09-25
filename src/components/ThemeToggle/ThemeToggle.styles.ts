@@ -1,26 +1,44 @@
 import styled from "styled-components";
-import toggleLight from "../../assets/toggle/light.svg";
-import toggleDark from "../../assets/toggle/dark.svg";
 
-export const ToggleWrapper = styled.div<{ isDark: boolean }>`
-    width: 60px;
-    height: 30px;
-    border-radius: 50px;
+export const ToggleWrapper = styled.div`
     cursor: pointer;
-    position: relative; // required for knob movement
-    background-image: url(${({ isDark }) => (isDark ? toggleDark : toggleLight)});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 2px;
-    box-sizing: border-box;
-    transition: background-image 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
-export const Knob = styled.div<{ isDark: boolean }>`
-    width: 26px;
-    height: 26px;
+export const ToggleTrack = styled.div<{ isDark: boolean }>`
+    width: 60px;
+    height: 30px;
+    background: ${({ isDark }) => (isDark ? "#1e1e1e" : "#ffffff")};
+    border: 1px solid ${({ theme }) => theme.highlight};
+    border-radius: 30px;
+    position: relative;
+`;
+
+export const ToggleKnob = styled.div<{ isDark: boolean }>`
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background-color: ${({ isDark }) => (isDark ? "#ffffff" : "#FFD700")};
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background: ${({ theme }) => theme.highlight};
+    position: relative;
+    z-index: 2;
+`;
+
+export const TrackIconLeft = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 6px; 
+    transform: translateY(-50%);
+    color: ${({ theme }) => theme.text};
+    z-index: 1;
+`;
+
+export const TrackIconRight = styled.div`
+    position: absolute;
+    top: 50%;
+    right: 6px; 
+    transform: translateY(-50%);
+    color: ${({ theme }) => theme.text};
+    z-index: 1;
 `;

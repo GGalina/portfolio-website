@@ -1,11 +1,16 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   LanguageWrapper,
   LanguageButton,
+  Dropdown,
   DropdownItem,
 } from "./LanguageToggle.styles";
-import { motion, AnimatePresence } from "framer-motion";
+
+interface LanguageToggleProps {
+  isDark: boolean;
+}
 
 const languages = [
   { code: "en", label: "EN" },
@@ -13,7 +18,7 @@ const languages = [
   { code: "ru", label: "RU" },
 ];
 
-const LanguageToggle: React.FC<{ isDark?: boolean }> = ({ isDark }) => {
+const LanguageToggle: React.FC<LanguageToggleProps> = ({ isDark }) => {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -36,9 +41,10 @@ const LanguageToggle: React.FC<{ isDark?: boolean }> = ({ isDark }) => {
     setOpen(false);
   };
 
-  const currentLanguage = languages.find(
-    (lang) => lang.code === i18n.resolvedLanguage
-  )?.label;
+  const currentLanguage = useMemo(
+    () => languages.find((lang) => lang.code === i18n.resolvedLanguage)?.label,
+    [i18n.resolvedLanguage]
+  );
 
   return (
     <LanguageWrapper ref={wrapperRef}>
@@ -48,12 +54,13 @@ const LanguageToggle: React.FC<{ isDark?: boolean }> = ({ isDark }) => {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <Dropdown
+            as={motion.div}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            style={{ position: "absolute", top: "110%", right: 0 }}
+            isDark={isDark} // pass prop to styled-component
           >
             {languages.map((lang) => (
               <DropdownItem
@@ -64,7 +71,7 @@ const LanguageToggle: React.FC<{ isDark?: boolean }> = ({ isDark }) => {
                 {lang.label}
               </DropdownItem>
             ))}
-          </motion.div>
+          </Dropdown>
         )}
       </AnimatePresence>
     </LanguageWrapper>

@@ -1,18 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 50px;
   max-width: 1000px;
-  margin: 0 auto;
+  padding: 0 50px 50px 50px;
 `;
 
 export const Title = styled.h1`
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: ${({ theme }) => theme.text};
 `;
 
 export const ProjectList = styled.div`
   display: grid;
+  margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 `;

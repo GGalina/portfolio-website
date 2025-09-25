@@ -5,34 +5,38 @@ export const Nav = styled.nav<{ isDark: boolean }>`
   height: 70px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* space between logo and right side */
+  justify-content: space-between;
   padding: 0 40px;
   background: ${({ theme }) => theme.background};
   box-shadow: ${({ isDark }) =>
     isDark ? "0 2px 4px rgba(0,0,0,0.5)" : "0 2px 4px rgba(0,0,0,0.1)"};
-  transition: background-color 0.3s, box-shadow 0.3s;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 `;
 
-export const NavLinks = styled.div<{ isDark: boolean }>`
+export const NavLinks = styled.div`
   display: flex;
-  gap: 25px;
+  gap: 30px;
+`;
 
-  a {
-    text-decoration: none;
-    color: ${({ isDark }) => (isDark ? "#ffffff" : "#333333")};
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    transition: color 0.3s, transform 0.2s;
+export const NavLinkButton = styled.button`
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.text};
 
-    &:hover {
-      color: ${({ isDark }) => (isDark ? "#f1c40f" : "#ff9900")};
-      transform: scale(1.05);
-    }
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.accent};
   }
 `;
 
 export const ToggleContainer = styled.div`
   display: flex;
-  align-items: center;
+  gap: 15px;
 `;

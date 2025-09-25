@@ -1,13 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { LogoWrapper, LogoImage } from "./Logo.styles";
 import logoSrc from "../../assets/logo.png";
+import { LogoWrapper, LogoImage } from "./Logo.styles";
 
 const Logo: React.FC = () => {
-    const navigate = useNavigate();
-
     const handleClick = () => {
-        navigate("/"); //navigate Home
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
