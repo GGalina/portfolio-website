@@ -46,14 +46,32 @@
       "Російська – Рідна"
     ],
     "skills": "Навички",
-    "technologies": [
-      "Frontend",
-      "Backend",
-      "Бази даних",
-      "Стилі",
-      "Документація",
-      "Утиліти"
-    ]
+    "techCategories": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "databases": "Бази даних",
+    "styles": "Стилі",
+    "documentation": "Документація",
+    "utilities": "Утиліти"
+    }
+  },
+  "contactMe": {
+    "title": "Зв'яжіться зі мною",
+    "nameField": "Повне ім'я",
+    "emailField": "Email",
+    "messageField": "Повідомлення",
+    "sendBtn": "Відправити",
+    "sending": "Відправляємо...",
+    "successMessage": "Ваше повідомлення відправлено!",
+    "errorName": "Будь ласка, введіть ім'я",
+    "errorEmail": "Будь ласка, введіть email",
+    "errorEmailFormat": "Будь ласка, введіть дійсний email",
+    "errorMessage": "Будь ласка, введіть повідомлення",
+    "namePlaceholder": "Михайло Скотт",
+    "emailPlaceholder": "worldsbestboss@gmail.com",
+    "messagePlaceholder": "Будь ласка, напишіть повідомлення тут",
+    "orField": "або",
+    "linkedInMessage": "Зв'яжіться зі мною через LinkedIn"
   }
 
 }

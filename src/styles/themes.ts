@@ -7,7 +7,8 @@ export const lightTheme: DefaultTheme = {
   background: "#f4e1d2", // soft nude beige for sections/cards
   primary: "#65849a", // logo steel blue
   accent: "#f9948dff", // warm rose complementary
-  highlight: "#fabcb7ff" // soft aqua highlight for buttons/links
+  highlight: "#fabcb7ff", // soft aqua highlight for buttons/links
+  error: "#a32921",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -16,8 +17,9 @@ export const darkTheme: DefaultTheme = {
   secondtext: "#1e1e1e", //dark grey 
   background: "#0f0f0f", // darker neutral for sections/cards
   primary: "#65849a", // logo steel blue
-  accent: "#2c8585ff", // peach accent
+  accent: "#205d5dff", // peach accent
   highlight: "#4ecdc4", // aqua neon highlight
+  error: "#a32921"
 };
 
 export const breakpoints = {

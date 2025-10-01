@@ -46,13 +46,32 @@
       "Russian – Native"
     ],
     "skills": "Skills",
-    "technologies": [
-      "Frontend",
-      "Backend",
-      "Databases",
-      "Styles",
-      "Documentation",
-      "Utilities"
-    ]
+    "techCategories": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "databases": "Databases",
+    "styles": "Styles",
+    "documentation": "Documentation",
+    "utilities": "Utilities"
+    }
+  },
+  "contactMe": {
+    "title": "Contact Me",
+    "nameField": "Full Name",
+    "emailField": "Email",
+    "messageField": "Message",
+    "sendBtn": "Send",
+    "sending": "Sending...",
+    "successMessage": "Your message has been sent!",
+    "errorName": "Please enter your name",
+    "errorEmail": "Please enter your email",
+    "errorEmailFormat": "Please enter a valid email",
+    "errorMessage": "Please enter your message",
+    "namePlaceholder": "Michael Scott",
+    "emailPlaceholder": "worldsbestboss@gmail.com",
+    "messagePlaceholder": "Please write your message here",
+    "orField": "or",
+    "linkedInMessage": "Contact me through "
   }
+
 }

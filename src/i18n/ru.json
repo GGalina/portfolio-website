@@ -46,13 +46,31 @@
       "Русский – Родной"
     ],
     "skills": "Навыки",
-    "technologies": [
-      "Frontend",
-      "Backend",
-      "Базы данных",
-      "Стили",
-      "Документация",
-      "Утилиты"
-    ]
+    "techCategories": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "databases": "Базы данных",
+    "styles": "Стили",
+    "documentation": "Документация",
+    "utilities": "Утилиты"
+    }
+  },
+  "contactMe": {
+    "title": "Свяжитесь со мной",
+    "nameField": "Полное имя",
+    "emailField": "Email",
+    "messageField": "Сообщение",
+    "sendBtn": "Отправить",
+    "sending": "Отправка...",
+    "successMessage": "Ваше сообщение успешно отправлено!",
+    "errorName": "Пожалуйста, введите имя",
+    "errorEmail": "Пожалуйста, введите email",
+    "errorEmailFormat": "Пожалуйста, введите корректный email",
+    "errorMessage": "Пожалуйста, введите сообщение",
+    "namePlaceholder": "Михаил Скотт",
+    "emailPlaceholder": "worldsbestboss@gmail.com",
+    "messagePlaceholder": "Пожалуйста, напишите сообщение здесь",
+    "orField": "или",
+    "linkedInMessage": "Свяжитесь со мной через LinkedIn"
   }
 }
