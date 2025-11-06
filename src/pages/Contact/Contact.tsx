@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Section,
@@ -15,6 +15,7 @@ import {
   ContactAlt,
   LinkedInLink,
 } from "./Contact.styles";
+import { sendContactForm } from "../../api/contactApi";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -25,7 +26,6 @@ const ContactMe: React.FC = () => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
   const [status, setStatus] = useState<Status>("idle");
-  const [buttonText, setButtonText] = useState(t("contactMe.sendBtn"));
 
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -33,6 +33,20 @@ const ContactMe: React.FC = () => {
 
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  // Get button text based on status
+  const getButtonText = (): string => {
+    switch (status) {
+      case "sending":
+        return t("contactMe.sending");
+      case "success":
+        return t("contactMe.successMessage");
+      case "error":
+        return t("contactMe.errorSendMessage");
+      default:
+        return t("contactMe.sendBtn");
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,35 +69,36 @@ const ContactMe: React.FC = () => {
       if (newErrors.name) nameRef.current?.focus();
       else if (newErrors.email) emailRef.current?.focus();
       else if (newErrors.message) messageRef.current?.focus();
-      setButtonText(t("contactMe.sendBtn"));
       return;
     }
 
     setErrors({});
 
-    // Simulate async sending 
     try {
-      await new Promise((res) => setTimeout(res, 1000)); // simulate delay
-      console.log({ name: trimmedName, email: trimmedEmail, message: trimmedMessage });
+      await sendContactForm({
+        name: trimmedName,
+        email: trimmedEmail,
+        message: trimmedMessage,
+      });
 
-      // Reset fields
       setName("");
       setEmail("");
       setMessage("");
 
       setStatus("success");
-      setButtonText(t("contactMe.successMessage"));
-
-      // Return button text after 3 seconds
-      setTimeout(() => {
-        setButtonText(t("contactMe.sendBtn"));
-        setStatus("idle");
-      }, 3000);
     } catch (err) {
+      console.error("Failed to send message", err);
       setStatus("error");
-      setButtonText(t("contactMe.sendBtn"));
     }
   };
+
+  // Auto-reset status after 3 seconds if success or error
+  useEffect(() => {
+    if (status === "success" || status === "error") {
+      const timer = setTimeout(() => setStatus("idle"), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   return (
     <Section>
@@ -97,8 +112,9 @@ const ContactMe: React.FC = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            hasError={!!errors.name}
+            $hasError={!!errors.name}
             placeholder={t("contactMe.namePlaceholder")}
+            autoComplete="name"
           />
           {errors.name && <Message aria-live="polite">{errors.name}</Message>}
         </FieldWrapper>
@@ -111,8 +127,9 @@ const ContactMe: React.FC = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            hasError={!!errors.email}
+            $hasError={!!errors.email}
             placeholder={t("contactMe.emailPlaceholder")}
+            autoComplete="email"
           />
           {errors.email && <Message aria-live="polite">{errors.email}</Message>}
         </FieldWrapper>
@@ -125,21 +142,22 @@ const ContactMe: React.FC = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows={7}
-            hasError={!!errors.message}
+            $hasError={!!errors.message}
             placeholder={t("contactMe.messagePlaceholder")}
+            autoComplete="off"
           />
           {errors.message && <Message aria-live="polite">{errors.message}</Message>}
         </FieldWrapper>
 
         <Button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? t("contactMe.sending") : buttonText}
+          {getButtonText()}
         </Button>
       </Form>
 
       <LinkedIn>
         <Or>{t("contactMe.orField")}</Or>
         <ContactAlt>
-          {t("contactMe.linkedInMessage")}
+          {t("contactMe.linkedInMessage")}{" "}
           <LinkedInLink
             href="https://www.linkedin.com/in/Halyna-Hryn"
             target="_blank"

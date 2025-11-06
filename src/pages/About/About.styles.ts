@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import { media } from "../../styles/themes";
 
+interface TabButtonProps {
+  $active?: boolean;
+}
+
 export const AboutWrapper = styled.div`
-  padding: 0 50px 50px 50px;
+  padding: 0 50px 0 50px;
 
   @media ${media.tablet} {
     padding: 0 20px 30px 20px;
@@ -56,7 +60,7 @@ export const TabsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const TabButton = styled.button<{ active?: boolean }>`
+export const TabButton = styled.button<{ $active?: boolean }>`
   background: none;
   border: none;
   font-size: 16px;
@@ -73,7 +77,7 @@ export const TabButton = styled.button<{ active?: boolean }>`
     bottom: 0;
     height: 2px;
     width: 100%;
-    background-color: ${({ active, theme }) => (active ? theme.highlight : 'transparent')};
+    background-color: ${({ $active, theme }) => ($active ? theme.highlight : 'transparent')};
     transition: background-color 0.3s ease;
   }
 

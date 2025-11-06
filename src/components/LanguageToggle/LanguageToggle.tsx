@@ -9,7 +9,7 @@ import {
 } from "./LanguageToggle.styles";
 
 interface LanguageToggleProps {
-  isDark: boolean;
+  $isDark: boolean;
 }
 
 const languages = [
@@ -18,7 +18,7 @@ const languages = [
   { code: "ru", label: "RU" },
 ];
 
-const LanguageToggle: React.FC<LanguageToggleProps> = ({ isDark }) => {
+const LanguageToggle: React.FC<LanguageToggleProps> = ({ $isDark }) => {
   const { i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ const LanguageToggle: React.FC<LanguageToggleProps> = ({ isDark }) => {
 
   return (
     <LanguageWrapper ref={wrapperRef}>
-      <LanguageButton onClick={toggleDropdown} isDark={isDark}>
+      <LanguageButton onClick={toggleDropdown} $isDark={$isDark}>
         {currentLanguage}
       </LanguageButton>
 
@@ -60,13 +60,13 @@ const LanguageToggle: React.FC<LanguageToggleProps> = ({ isDark }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            isDark={isDark} // pass prop to styled-component
+            $isDark={$isDark} // pass prop to styled-component
           >
             {languages.map((lang) => (
               <DropdownItem
                 key={lang.code}
                 onClick={() => handleChangeLanguage(lang.code)}
-                isDark={isDark}
+                $isDark={$isDark}
               >
                 {lang.label}
               </DropdownItem>

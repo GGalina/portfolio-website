@@ -4,12 +4,12 @@ import LinkedInIcon from "../../assets/techSvg/linkedin.svg";
 import { FooterContainer, FooterText, SocialLinks, SocialIcon } from "./Footer.styles";
 
 interface FooterProps {
-  isDark: boolean;
+  $isDark: boolean;
 }
 
-const Footer: React.FC<FooterProps> = ({ isDark}) => {
+const Footer: React.FC<FooterProps> = ({ $isDark}) => {
     return (
-        <FooterContainer isDark={isDark}>
+        <FooterContainer $isDark={$isDark}>
             <FooterText>© 2025 Halyna Hryn. All rights reserved.</FooterText>
             <SocialLinks>
                 <SocialIcon

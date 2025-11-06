@@ -7,16 +7,16 @@ export const ToggleWrapper = styled.div`
     justify-content: center;
 `;
 
-export const ToggleTrack = styled.div<{ isDark: boolean }>`
+export const ToggleTrack = styled.div<{ $isDark: boolean }>`
     width: 60px;
     height: 30px;
-    background: ${({ isDark }) => (isDark ? "#1e1e1e" : "#ffffff")};
+    background: ${({ $isDark }) => ($isDark ? "#1e1e1e" : "#ffffff")};
     border: 1px solid ${({ theme }) => theme.highlight};
     border-radius: 30px;
     position: relative;
 `;
 
-export const ToggleKnob = styled.div<{ isDark: boolean }>`
+export const ToggleKnob = styled.div<{ $isDark: boolean }>`
     width: 28px;
     height: 28px;
     border-radius: 50%;

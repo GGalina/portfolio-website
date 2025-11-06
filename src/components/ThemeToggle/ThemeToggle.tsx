@@ -9,7 +9,7 @@ import {
 } from "./ThemeToggle.styles";
 
 interface ThemeToggleProps {
-    isDark: boolean;
+    $isDark: boolean;
     toggleTheme: () => void;
 }
 
@@ -25,22 +25,22 @@ const MoonIcon = () => (
     </svg>
 );
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ isDark, toggleTheme }) => {
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ $isDark, toggleTheme }) => {
     return (
         <ToggleWrapper onClick={toggleTheme}>
-            <ToggleTrack isDark={isDark}>
+            <ToggleTrack $isDark={$isDark}>
                 <TrackIconLeft>
-                    {isDark ? <MoonIcon /> : null}
+                    {$isDark ? <MoonIcon /> : null}
                 </TrackIconLeft>
                 <TrackIconRight>
-                    {!isDark ? <SunIcon /> : null}
+                    {!$isDark ? <SunIcon /> : null}
                 </TrackIconRight>
 
                 <motion.div
-                    animate={{ x: isDark ? 30 : 0 }}
+                    animate={{ x: $isDark ? 30 : 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                 >
-                    <ToggleKnob isDark={isDark} />
+                    <ToggleKnob $isDark={$isDark} />
                 </motion.div>
             </ToggleTrack>
         </ToggleWrapper>

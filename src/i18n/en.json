@@ -47,12 +47,12 @@
     ],
     "skills": "Skills",
     "techCategories": {
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "databases": "Databases",
-    "styles": "Styles",
-    "documentation": "Documentation",
-    "utilities": "Utilities"
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "databases": "Databases",
+      "styles": "Styles",
+      "documentation": "Documentation",
+      "utilities": "Utilities"
     }
   },
   "contactMe": {
@@ -63,6 +63,7 @@
     "sendBtn": "Send",
     "sending": "Sending...",
     "successMessage": "Your message has been sent!",
+    "errorSendMessage": "Something went wrong, try again...",
     "errorName": "Please enter your name",
     "errorEmail": "Please enter your email",
     "errorEmailFormat": "Please enter a valid email",
@@ -72,6 +73,16 @@
     "messagePlaceholder": "Please write your message here",
     "orField": "or",
     "linkedInMessage": "Contact me through "
+  },
+  "projects": {
+    "title": "My Projects",
+    "learnLingo": {
+      "description": "LearnLingo lets users find language teachers, compare rates, save favorites, and book trial lessons.",
+      "type": "Personal project"
+    },
+    "cocktails": {
+      "description": "Cocktails helps users discover drink recipes, explore ingredients, and find their favorite cocktails easily.",
+      "type": "Team project"
+    }
   }
-
 }

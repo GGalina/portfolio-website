@@ -47,7 +47,7 @@ const Layout: React.FC<LayoutProps> = ({ toggleTheme, isDark }) => {
         </section>
       </main>
 
-      <Footer isDark={isDark} />
+      <Footer $isDark={isDark} />
     </>
   );
 };

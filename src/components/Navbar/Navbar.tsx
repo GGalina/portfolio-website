@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme, sectionRefs }) => 
   };
 
   return (
-    <Nav isDark={isDark}>
+    <Nav $isDark={isDark}>
       <Logo />
 
       <NavLinks>
@@ -45,8 +45,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme, sectionRefs }) => 
       </NavLinks>
 
       <ToggleContainer>
-        <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
-        <LanguageToggle isDark={isDark} />
+        <ThemeToggle $isDark={isDark} toggleTheme={toggleTheme} />
+        <LanguageToggle $isDark={isDark} />
       </ToggleContainer>
     </Nav>
   );

@@ -18,6 +18,7 @@ export const Title = styled.h2`
   font-weight: 600;
   font-size: 36px;
   margin-bottom: 20px;
+  margin-top: 32px;
   color: ${({ theme }) => theme.text};
 
   @media ${media.tablet} {
@@ -65,14 +66,14 @@ export const Label = styled.label`
 `;
 
 interface InputProps {
-  hasError?: boolean;
+  $hasError?: boolean;
 }
 
 export const Input = styled.input<InputProps>`
   padding: 13px 16px;
   font-size: 16px;
   border: 2px solid
-    ${({ hasError, theme }) => (hasError ? theme.error : theme.highlight)};
+    ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   border-radius: 8px;
@@ -80,8 +81,8 @@ export const Input = styled.input<InputProps>`
   transition: all 0.3s ease;
 
   &:focus {
-    border-color: ${({ hasError, theme }) =>
-      hasError ? theme.error : theme.accent};
+    border-color: ${({ $hasError, theme }) =>
+      $hasError ? theme.error : theme.accent};
   }
 
   &::placeholder {
@@ -94,7 +95,7 @@ export const Textarea = styled.textarea<InputProps>`
   padding: 13px 16px;
   font-size: 16px;
   border: 2px solid
-    ${({ hasError, theme }) => (hasError ? theme.error : theme.highlight)};
+    ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   border-radius: 8px;
@@ -103,8 +104,8 @@ export const Textarea = styled.textarea<InputProps>`
   transition: all 0.3s ease;
 
   &:focus {
-    border-color: ${({ hasError, theme }) =>
-      hasError ? theme.error : theme.accent};
+    border-color: ${({ $hasError, theme }) =>
+      $hasError ? theme.error : theme.accent};
   }
 
   &::placeholder {
