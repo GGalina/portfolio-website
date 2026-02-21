@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -44,8 +45,10 @@
       "English – Advanced",
       "Ukrainian – Native",
       "Russian – Native"
-    ],
-    "skills": "Skills",
+    ]
+  },
+  "skills": {
+    "title": "Skills",
     "techCategories": {
       "frontend": "Frontend",
       "backend": "Backend",

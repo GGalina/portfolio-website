@@ -8,7 +8,7 @@ export const LanguageWrapper = styled.div`
 export const LanguageButton = styled.button<{ $isDark?: boolean }>`
   background-color: ${({ $isDark }) => ($isDark ? "#1e1e1e" : "#ffffff")};
   color: ${({ theme }) => theme.text};
-  border: 1px solid ${({ theme }) => theme.highlight};
+  border: 1px solid ${({ theme }) => theme.accent};
   border-radius: 20px;
   padding: 6px 12px;
   cursor: pointer;
@@ -17,7 +17,7 @@ export const LanguageButton = styled.button<{ $isDark?: boolean }>`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.accent};
+    background: ${({ theme }) => theme.highlight};
     color: ${({ $isDark }) => ($isDark ? "#1e1e1e" : "#ffffff")};
   }
 `;
@@ -28,7 +28,7 @@ export const Dropdown = styled.div<{ $isDark?: boolean }>`
   right: 0;
   background-color: ${({ $isDark }) => ($isDark ? "#1e1e1e" : "#ffffff")};
   color: ${({ theme }) => theme.text};
-  border: 1px solid ${({ theme }) => theme.highlight};
+  border: 1px solid ${({ theme }) => theme.accent};
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -44,7 +44,7 @@ export const DropdownItem = styled.div<{ $isDark?: boolean }>`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.accent};
+    background: ${({ theme }) => theme.highlight};
     color: ${({ $isDark }) => ($isDark ? "#1e1e1e" : "#ffffff")};
   }
 `;

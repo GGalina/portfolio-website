@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Logo from "../Logo/Logo";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
-import { SectionRefs } from "../../@types/sections";
+import { SectionRefs } from "../../types/sections";
 import { Nav, NavLinks, ToggleContainer, NavLinkButton } from "./Navbar.styles";
 
 interface NavbarProps {
@@ -18,6 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme, sectionRefs }) => 
   const navItems = [
     { id: "home", label: t("nav.home") },
     { id: "about", label: t("nav.about") },
+    { id: "skills", label: t("nav.skills") },
     { id: "projects", label: t("nav.projects") },
     { id: "contact", label: t("nav.contact") },
   ];

@@ -77,4 +77,8 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: ${({ theme }) => theme.text};
   }
+  html {
+    scroll-padding-top: 70px; 
+    scroll-behavior: smooth; 
+  }
 `;

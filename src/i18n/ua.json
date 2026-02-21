@@ -2,6 +2,7 @@
   "nav": {
     "home": "Головна",
     "about": "Про мене",
+    "skills": "Навички",
     "projects": "Проекти",
     "contact": "Контакти"
   },
@@ -44,15 +45,17 @@
       "Англійська – Високий рівень",
       "Українська – Рідна",
       "Російська – Рідна"
-    ],
-    "skills": "Навички",
-    "techCategories": {
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "databases": "Бази даних",
-    "styles": "Стилі",
-    "documentation": "Документація",
-    "utilities": "Утиліти"
+    ]
+  },
+  "skills": {
+      "title": "Навички",
+      "techCategories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "databases": "Бази даних",
+      "styles": "Стилі",
+      "documentation": "Документація",
+      "utilities": "Утиліти"
     }
   },
   "contactMe": {

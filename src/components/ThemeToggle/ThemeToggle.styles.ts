@@ -11,7 +11,7 @@ export const ToggleTrack = styled.div<{ $isDark: boolean }>`
     width: 60px;
     height: 30px;
     background: ${({ $isDark }) => ($isDark ? "#1e1e1e" : "#ffffff")};
-    border: 1px solid ${({ theme }) => theme.highlight};
+    border: 1px solid ${({ theme }) => theme.accent};
     border-radius: 30px;
     position: relative;
 `;

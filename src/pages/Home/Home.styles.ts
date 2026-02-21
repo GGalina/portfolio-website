@@ -50,17 +50,18 @@ export const RightSide = styled.div`
 `;
 
 export const Title = styled.h1`
+  font-family: 'Roboto', sans-serif;
   font-size: 48px;
   font-weight: 700;
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 20px;
-  color: ${({ theme }) => theme.background};
-  text-shadow: 
-    -1px -1px 0 ${({ theme }) => theme.text},
-    1px -1px 0 ${({ theme }) => theme.text},
-    -1px  1px 0 ${({ theme }) => theme.text},
-    1px  1px 0 ${({ theme }) => theme.text};
+  letter-spacing: 1px;
+  margin-bottom: 5px;
 
+  background: ${({ theme }) => theme.highlight};
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  }
   @media ${media.tablet} {
     font-size: 36px;
   }
@@ -135,12 +136,12 @@ export const CTAButton = styled.button`
   cursor: pointer;
   background-color: ${({ theme }) => theme.secondtext};
   color: ${({ theme }) => theme.text};
-  border: solid 1px ${({ theme }) => theme.highlight};
+  border: solid 1px ${({ theme }) => theme.accent};
   font-family: 'Roboto', sans-serif;
   transition: all 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.accent};
+    background: ${({ theme }) => theme.highlight};
     transform: scale(1.05);
   }
 

@@ -2,6 +2,7 @@
   "nav": {
     "home": "Главная",
     "about": "Обо мне",
+    "skills": "Навыки",
     "projects": "Проекты",
     "contact": "Контакты"
   },
@@ -44,8 +45,10 @@
       "Английский – Продвинутый",
       "Украинский – Родной",
       "Русский – Родной"
-    ],
-    "skills": "Навыки",
+    ]
+  },
+  "skills": {
+    "title": "Навыки",
     "techCategories": {
     "frontend": "Frontend",
     "backend": "Backend",
