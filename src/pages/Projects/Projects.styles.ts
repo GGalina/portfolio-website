@@ -4,10 +4,18 @@ import { media } from "../../styles/themes";
 
 export const Container = styled.div`
   width: 100%;
-  padding: 32px;
+  padding: 20px 50px;
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.background};
+
+  @media ${media.tablet} {
+      padding: 20px 30px;
+    }
+  
+  @media ${media.mobile} {
+    padding: 20px 16px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -33,7 +41,9 @@ export const ProjectList = styled.div`
 
   > * {
     flex: 1 1 calc((100% - 64px) / 3); // 3 items per row, 64px total gap (2 gaps)
-    max-width: 350px; // optional, limits max card size
+    max-width: 350px; //limits max card size
+     margin-bottom: 40px; // extra space for hover lift
+  transition: transform 0.3s;
   }
 
   @media ${media.laptop} {
@@ -52,14 +62,14 @@ export const ProjectList = styled.div`
 export const Card = styled(motion.div)`
   position: relative;
   overflow: visible;
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.body};
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 300px;
-  min-height: 270px;
+  min-height: 300px;
 
   &:hover {
     transform: translateY(-8px) scale(1.03);
@@ -140,15 +150,12 @@ export const HoverContent = styled.div`
   right: 0;
   margin: 16px 0  16px 0;
   text-align: center;
-  background: linear-gradient(
-    to top,
-    ${({ theme }) => theme.background} 95%,
-    transparent
-  );
+  background: ${({ theme }) => theme.body};
+  padding: 0 7px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
   transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
   z-index: 1;
   overflow: hidden;
@@ -175,7 +182,7 @@ export const TechList = styled.div`
 `;
 
 export const TechItem = styled.span`
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.secondbackground};
   color: ${({ theme }) => theme.text};
   font-family: 'Roboto', sans-serif;
   font-weight: 400;

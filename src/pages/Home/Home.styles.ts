@@ -61,7 +61,7 @@ export const Title = styled.h1`
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  }
+  
   @media ${media.tablet} {
     font-size: 36px;
   }

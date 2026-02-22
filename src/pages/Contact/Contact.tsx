@@ -14,8 +14,19 @@ import {
   Or,
   ContactAlt,
   LinkedInLink,
+  Container,
+  Info,
+  Description,
+  ContactItem,
+  ContactLabel,
+  Contacts,
+  SocialLinks,
+  SocialIcon,
+
 } from "./Contact.styles";
 import { sendContactForm } from "../../api/contactApi";
+import GitHubIcon from "../../assets/techSvg/Utills/github.svg";
+import LinkedInIcon from "../../assets/techSvg/linkedin.svg";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -103,7 +114,36 @@ const ContactMe: React.FC = () => {
   return (
     <Section>
       <Title>{t("contactMe.title")}</Title>
-      <Form onSubmit={handleSubmit}>
+      <Description>{t("contactMe.description")}</Description>
+      <Container>
+        <Info>
+          <ContactItem>
+            <ContactLabel>{t("contactMe.contactLocationLabel")}</ContactLabel>
+            <Contacts>{t("contactMe.contactLocation")}</Contacts>
+          </ContactItem>
+
+          <ContactItem>
+            <ContactLabel>{t("contactMe.contactLinksLabel")}</ContactLabel>
+              <SocialLinks>
+                  <SocialIcon
+                      href="https://github.com/GGalina"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                  >
+                      <img src={GitHubIcon} alt="GitHub" />
+                  </SocialIcon>
+                  <SocialIcon
+                      href="https://linkedin.com/in/halyna-hryn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                  >
+                      <img src={LinkedInIcon} alt="LinkedIn" />
+                  </SocialIcon>
+              </SocialLinks>
+          </ContactItem>
+        </Info>
+
+                <Form onSubmit={handleSubmit}>
         <FieldWrapper>
           <Label htmlFor="name">{t("contactMe.nameField")}</Label>
           <Input
@@ -152,21 +192,11 @@ const ContactMe: React.FC = () => {
         <Button type="submit" disabled={status === "sending"}>
           {getButtonText()}
         </Button>
-      </Form>
+        </Form>
+          
 
-      <LinkedIn>
-        <Or>{t("contactMe.orField")}</Or>
-        <ContactAlt>
-          {t("contactMe.linkedInMessage")}{" "}
-          <LinkedInLink
-            href="https://www.linkedin.com/in/Halyna-Hryn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </LinkedInLink>
-        </ContactAlt>
-      </LinkedIn>
+
+      </Container>
     </Section>
   );
 };

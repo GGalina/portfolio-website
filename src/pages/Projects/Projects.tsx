@@ -24,6 +24,8 @@ import GitHubIcon from "../../assets/techSvg/Utills/github.svg";
 import WebsiteIcon from "../../assets/techSvg/www.svg";
 import LearnLingoMockup from "../../assets/mockups/LearnLingo.webp";
 import CocktailsMockup from "../../assets/mockups/Cocktails.webp";
+import FoodStaMockup from "../../assets/mockups/Foodsta.webp";
+import WebStudioMockup from "../../assets/mockups/WebStudio.webp";
 
 const myProjects: Project[] = [
   {
@@ -48,13 +50,23 @@ const myProjects: Project[] = [
   },
   {
     id: 3,
-    title: "Blog App",
-    descriptionKey: "projects.blog.description",
-    typeKey: "projects.blog.type",
-    image: "/mockups/blog.png",
-    technologies: ["React", "Firebase", "Tailwind"],
-    github: "#",
-    live: "#",
+    title: "Foodsta",
+    descriptionKey: "projects.foodsta.description",
+    typeKey: "projects.foodsta.type",
+    image: FoodStaMockup,
+    technologies: ["HTML", "CSS", "SASS", "BEM", "JavaScript", "Adaptive Design"],
+    github: "https://github.com/GGalina/Foodsta.git",
+    live: "https://ggalina.github.io/Foodsta",
+  },
+  {
+    id: 4,
+    title: "WebStudio",
+    descriptionKey: "projects.webstudio.description",
+    typeKey: "projects.webstudio.type",
+    image: WebStudioMockup,
+    technologies: ["HTML", "CSS", "SASS", "BEM", "JavaScript", "Adaptive Design"],
+    github: "https://github.com/GGalina/WebStudio.git",
+    live: "https://ggalina.github.io/WebStudio/",
   },
 ];
 

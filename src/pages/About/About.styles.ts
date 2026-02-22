@@ -10,7 +10,11 @@ export const AboutWrapper = styled.div`
   background: ${({ theme }) => theme.background};
 
   @media ${media.tablet} {
-    padding: 0 20px 30px 20px;
+      padding: 20px 30px;
+    }
+  
+  @media ${media.mobile} {
+    padding: 20px 16px;
   }
 `;
 

@@ -30,6 +30,34 @@ export const Title = styled.h2`
   }
 `;
 
+export const Container = styled.div`
+  display: flex;
+`;
+
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+  max-width: 400px;
+`;
+
+export const Description = styled.p`
+
+`;
+
+export const ContactItem = styled.div`
+
+`;
+
+export const ContactLabel = styled.p`
+
+`;
+
+export const Contacts = styled.p`
+
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -184,4 +212,44 @@ export const LinkedInLink = styled.a`
   &:hover {
     color: ${({ theme }) => theme.accent};
   }
+`;
+
+
+export const SocialLinks = styled.div`
+    display: flex;
+    gap: 10px;
+`;
+
+export const SocialIcon = styled.a`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+
+    img {
+        width: 24px;
+        height: 24px;
+        filter: drop-shadow(0 0 10px ${({ theme }) => theme.highlight}); /* normal glow */
+        transition: filter 0.3s ease, transform 0.3s ease;
+        z-index: 1;
+    }
+
+    
+
+    &:hover {
+        &::before {
+            background: ${({ theme }) => theme.accent}; /* circle color on hover */
+            opacity: 0.2;
+            box-shadow: 0 0 15px ${({ theme }) => theme.accent}; /* glow */
+        }
+
+        img {
+            filter: drop-shadow(0 0 15px ${({ theme }) => theme.accent}); /* icon glow */
+            transform: scale(1.1);
+            filter: invert(1); /* icon turns white */
+        }
+    }
 `;

@@ -1,11 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import {
   SkillsContainer,
   Title,
-  //TabsContainer,
-  TabButton,
-
   TechRow,
   SkillSection,
   TechSection,
@@ -16,31 +13,30 @@ import {
 } from "./Skills.styles";
 
 // --- SVG Imports ---
+// Frontend
 import { ReactComponent as HTML5 } from "../../assets/techSvg/Frontend/html5.svg";
 import { ReactComponent as JavaScript } from "../../assets/techSvg/Frontend/javascript.svg";
 import { ReactComponent as ReactJS } from "../../assets/techSvg/Frontend/react.svg";
 import { ReactComponent as TypeScript } from "../../assets/techSvg/Frontend/typescript.svg";
 import { ReactComponent as ReactNative } from "../../assets/techSvg/Frontend/reactnative.svg";
 import { ReactComponent as Redux } from "../../assets/techSvg/Frontend/redux.svg";
-import { ReactComponent as RestApi } from "../../assets/techSvg/Frontend/restApi.svg";
+import { ReactComponent as CSS3 } from "../../assets/techSvg/Frontend/css3.svg";
+import { ReactComponent as SaaS } from "../../assets/techSvg/Frontend/sass.svg";
+import { ReactComponent as BEM } from "../../assets/techSvg/Frontend/bem.svg";
+import { ReactComponent as StyledComponents } from "../../assets/techSvg/Frontend/styledcomponents.svg";
+import { ReactComponent as MaterialUI } from "../../assets/techSvg/Frontend/material-ui.svg";
+import { ReactComponent as Framer } from "../../assets/techSvg/Frontend/framer.svg";
+import { ReactComponent as Tailwind } from "../../assets/techSvg/Frontend/tailwindcss.svg";
 
-import { ReactComponent as NodeJS } from "../../assets/techSvg/Backend/nodedotjs.svg";
-import { ReactComponent as ExpressJS } from "../../assets/techSvg/Backend/expressJS.svg";
+// Backend
+import { ReactComponent as NodeJS } from "../../assets/techSvg/Backend/nodejs.svg";
+import { ReactComponent as ExpressJS } from "../../assets/techSvg/Backend/expressjs.svg";
 import { ReactComponent as Mongoose } from "../../assets/techSvg/Backend/mongoosejs.svg";
+import { ReactComponent as FireBaseDB } from "../../assets/techSvg/Backend/firebase.svg";
+import { ReactComponent as MongoDB } from "../../assets/techSvg/Backend/mongodb.svg";
+import { ReactComponent as RestApi } from "../../assets/techSvg/Backend/rest-api.svg";
 
-import { ReactComponent as FireBaseDB } from "../../assets/techSvg/Databases/firebase.svg";
-import { ReactComponent as MongoDB } from "../../assets/techSvg/Databases/mongodb.svg";
-
-import { ReactComponent as CSS3 } from "../../assets/techSvg/Styles/css3.svg";
-import { ReactComponent as SaaS } from "../../assets/techSvg/Styles/sass.svg";
-import { ReactComponent as BEM } from "../../assets/techSvg/Styles/bem.svg";
-import { ReactComponent as StyledComponents } from "../../assets/techSvg/Styles/styledcomponents.svg";
-import { ReactComponent as MaterialUI } from "../../assets/techSvg/Styles/material-ui.svg";
-import { ReactComponent as Framer } from "../../assets/techSvg/Styles/framer.svg";
-
-import { ReactComponent as Swagger } from "../../assets/techSvg/Documentation/swagger.svg";
-import { ReactComponent as Json } from "../../assets/techSvg/Documentation/json.svg";
-
+// Tools & Utilities
 import { ReactComponent as Git } from "../../assets/techSvg/Utills/git.svg";
 import { ReactComponent as GitHub } from "../../assets/techSvg/Utills/github.svg";
 import { ReactComponent as Docker } from "../../assets/techSvg/Utills/docker.svg";
@@ -50,10 +46,11 @@ import { ReactComponent as Postman } from "../../assets/techSvg/Utills/postman.s
 import { ReactComponent as VScode } from "../../assets/techSvg/Utills/vscode.svg";
 import { ReactComponent as Webpack } from "../../assets/techSvg/Utills/webpack.svg";
 import { ReactComponent as Vercel } from "../../assets/techSvg/Utills/vercel.svg";
+import { ReactComponent as Swagger } from "../../assets/techSvg/Utills/swagger.svg";
+import { ReactComponent as Json } from "../../assets/techSvg/Utills/json.svg";
 
 // --- Tech Icons ---
-const techIcons: Record<string, { icon: React.FC<React.SVGProps<SVGSVGElement>>; label: string }[]> =
-{
+const techIcons = {
   frontend: [
     { icon: HTML5, label: "HTML5" },
     { icon: JavaScript, label: "JavaScript" },
@@ -61,7 +58,13 @@ const techIcons: Record<string, { icon: React.FC<React.SVGProps<SVGSVGElement>>;
     { icon: TypeScript, label: "TypeScript" },
     { icon: ReactNative, label: "React Native" },
     { icon: Redux, label: "Redux" },
-    { icon: RestApi, label: "REST API" },
+    { icon: CSS3, label: "CSS3" },
+    { icon: SaaS, label: "Sass" },
+    { icon: BEM, label: "BEM" },
+    { icon: StyledComponents, label: "Styled Components" },
+    { icon: MaterialUI, label: "Material UI" },
+    { icon: Framer, label: "Framer Motion" },
+    { icon: Tailwind, label: "Tailwind CSS" },
   ],
   backend: [
     { icon: NodeJS, label: "Node.js" },
@@ -69,18 +72,7 @@ const techIcons: Record<string, { icon: React.FC<React.SVGProps<SVGSVGElement>>;
     { icon: Mongoose, label: "Mongoose" },
     { icon: FireBaseDB, label: "Firebase" },
     { icon: MongoDB, label: "MongoDB" },
-  ],
-  styles: [
-    { icon: CSS3, label: "CSS3" },
-    { icon: SaaS, label: "Sass" },
-    { icon: BEM, label: "BEM" },
-    { icon: StyledComponents, label: "Styled Components" },
-    { icon: MaterialUI, label: "Material UI" },
-    { icon: Framer, label: "Framer Motion" },
-  ],
-  documentation: [
-    { icon: Swagger, label: "Swagger" },
-    { icon: Json, label: "JSON" },
+    { icon: RestApi, label: "REST API" },
   ],
   utilities: [
     { icon: Git, label: "Git" },
@@ -88,99 +80,51 @@ const techIcons: Record<string, { icon: React.FC<React.SVGProps<SVGSVGElement>>;
     { icon: Docker, label: "Docker" },
     { icon: Figma, label: "Figma" },
     { icon: Npm, label: "NPM" },
-    { icon: VScode, label: "VScode" },
+    { icon: VScode, label: "VS Code" },
     { icon: Postman, label: "Postman" },
     { icon: Webpack, label: "Webpack" },
     { icon: Vercel, label: "Vercel" },
+    { icon: Swagger, label: "Swagger" },
+    { icon: Json, label: "JSON" },
   ],
-};
-
-// --- Types ---
-type TabDef = { key: string; label: string };
-
-type SkillsType = {
-  title: string;
-  description: string[];
-  tabs: string[] | { key: string; label: string }[];
-  skills?: string;
 };
 
 // --- Component ---
 const Skills: React.FC = () => {
   const { t } = useTranslation();
-  const skills = t("skills", { returnObjects: true }) as SkillsType;
 
-  // Normalize tabs
-  const normalizedTabs: TabDef[] = useMemo(() => {
-    const raw = skills?.tabs;
-    if (!raw) return [];
-    return (raw as any[]).flatMap((tab) => {
-      if (typeof tab === "string") return [{ key: tab.toLowerCase(), label: tab }];
-      if (tab && typeof tab === "object" && "key" in tab && "label" in tab)
-        return [{ key: String(tab.key), label: String(tab.label) }];
-      return [];
-    });
-  }, [skills?.tabs]);
+  const renderSection = (category: keyof typeof techIcons) => (
+    <SkillSection>
+      <TechSection>
+        {t(`skills.techCategories.${category}`, category)}
+      </TechSection>
 
-  const [activeTab, setActiveTab] = useState<string>(normalizedTabs[0]?.key ?? "");
-
-  // --- Render Technologies ---
-  const renderTechnologies = () => {
-  // First row: 2 columns
-  const firstRowLeft = ["frontend"];
-  const firstRowRight = ["backend"];
-
-  // Second row: full-width
-  const secondRow = ["styles", "documentation", "utilities"];
-
-  const renderColumn = (categories: string[]) => (
-    <TechColumn>
-      {categories.map((category) => {
-        const icons = techIcons[category] ?? [];
-        return (
-          <SkillSection key={category}>
-            <TechSection>{t(`skills.techCategories.${category}`, category)}</TechSection>
-            <SkillIcons>
-              {icons.map(({ icon: Icon, label }, i) => (
-                <TechIcon key={i} data-label={label}>
-                  <Icon />
-                </TechIcon>
-              ))}
-            </SkillIcons>
-          </SkillSection>
-        );
-      })}
-    </TechColumn>
+      <SkillIcons>
+        {techIcons[category].map(({ icon: Icon, label }) => (
+          <TechIcon key={label} data-label={label}>
+            <Icon />
+          </TechIcon>
+        ))}
+      </SkillIcons>
+    </SkillSection>
   );
-
-  return (
-    <TechnologiesWrapper>
-      <TechRow>
-        {renderColumn(firstRowLeft)}
-        {renderColumn(firstRowRight)}
-      </TechRow>
-
-      <TechRow style={{ flexDirection: "column" }}>
-        {renderColumn(secondRow)}
-      </TechRow>
-    </TechnologiesWrapper>
-  );
-};
 
   return (
     <SkillsContainer>
-      <Title>{skills?.title}</Title>
+      <Title>{t("skills.title")}</Title>
 
-        {normalizedTabs.map((tab) => (
-          <TabButton
-            key={tab.key}
-            $active={activeTab === tab.key}
-            onClick={() => setActiveTab(tab.key)}
-          >
-            {tab.label}
-          </TabButton>
-        ))}
-      {renderTechnologies()}
+      <TechnologiesWrapper>
+        {/* First row: Frontend | Backend */}
+        <TechRow>
+          <TechColumn>{renderSection("frontend")}</TechColumn>
+          <TechColumn>{renderSection("backend")}</TechColumn>
+        </TechRow>
+
+        {/* Second row: Tools & Utilities */}
+        <TechRow>
+          <TechColumn>{renderSection("utilities")}</TechColumn>
+        </TechRow>
+      </TechnologiesWrapper>
     </SkillsContainer>
   );
 };

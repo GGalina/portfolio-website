@@ -52,10 +52,7 @@
     "techCategories": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "databases": "Databases",
-      "styles": "Styles",
-      "documentation": "Documentation",
-      "utilities": "Utilities"
+      "utilities": "Tools & Utilities"
     }
   },
   "contactMe": {
@@ -75,7 +72,11 @@
     "emailPlaceholder": "worldsbestboss@gmail.com",
     "messagePlaceholder": "Please write your message here",
     "orField": "or",
-    "linkedInMessage": "Contact me through "
+    "linkedInMessage": "Contact me through ",
+    "description": "Have a project in mind? Let's work together!",
+    "contactLocationLabel":"Location:",
+    "contactLocation":"Sumy, Ukraine",
+    "contactLinksLabel": "Links"
   },
   "projects": {
     "title": "My Projects",
@@ -86,6 +87,14 @@
     "cocktails": {
       "description": "Cocktails helps users discover drink recipes, explore ingredients, and find their favorite cocktails easily.",
       "type": "Team project"
+    },
+    "foodsta": {
+      "description": "FoodSta lets users explore meals, browse featured dishes, and subscribe for regular food deliveries.",
+      "type": "Team project"
+    },
+    "webstudio": {
+      "description": "WebStudio showcases company services, highlights team skills, and presents completed projects for potential clients.",
+      "type": "Personal project"
     }
   }
 }
