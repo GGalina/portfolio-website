@@ -43,19 +43,32 @@ export const Info = styled.div`
 `;
 
 export const Description = styled.p`
-
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: ${({ theme }) => theme.thirdtext};
 `;
 
 export const ContactItem = styled.div`
-
+  display: flex;
+  gap: 10px;
+  align-items: center;
 `;
 
 export const ContactLabel = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: ${({ theme }) => theme.text};
 
 `;
 
 export const Contacts = styled.p`
-
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: ${({ theme }) => theme.thirdtext};
 `;
 
 export const Form = styled.form`
@@ -65,6 +78,11 @@ export const Form = styled.form`
   width: 50%;
   max-width: 860px;
   margin: 0 auto;
+  background: ${({ theme }) => theme.background};
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid ${({ theme }) => theme.primary};
+  
 
   @media ${media.tablet} {
     width: 50%;
@@ -107,6 +125,7 @@ export const Input = styled.input<InputProps>`
   border-radius: 8px;
   outline: none;
   transition: all 0.3s ease;
+  border: 1px solid ${({ theme }) => theme.primary};
 
   &:focus {
     border-color: ${({ $hasError, theme }) =>
@@ -127,6 +146,7 @@ export const Textarea = styled.textarea<InputProps>`
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.primary};
   outline: none;
   resize: vertical;
   transition: all 0.3s ease;
@@ -143,7 +163,7 @@ export const Textarea = styled.textarea<InputProps>`
 `;
 
 export const Button = styled.button`
-  padding: 12px 40px;
+  padding: 12px 100px;
   font-size: 16px;
   font-weight: 600;
   border-radius: 16px;
@@ -153,12 +173,12 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: ${({ theme }) => theme.secondtext};
   color: ${({ theme }) => theme.text};
-  border: solid 1px ${({ theme }) => theme.highlight};
+  border: solid 1px ${({ theme }) => theme.accent};
   font-family: 'Roboto', sans-serif;
   transition: all 0.3s ease, transform 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) => theme.accent};
+    background: ${({ theme }) => theme.highlight};
     transform: scale(1.05);
   }
 
@@ -178,78 +198,24 @@ export const Message = styled.span`
   color: ${({ theme }) => theme.secondtext};
 `;
 
-export const LinkedIn = styled.div`
-  margin-top: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const Or = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.text};
-`;
-
-export const ContactAlt = styled.p`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.text};
-`;
-
-export const LinkedInLink = styled.a`
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.6;
-  color: ${({ theme }) => theme.highlight};
-  margin-left: 4px;
-
-  &:hover {
-    color: ${({ theme }) => theme.accent};
-  }
-`;
-
-
 export const SocialLinks = styled.div`
     display: flex;
-    gap: 10px;
+    align-items: center;
 `;
 
 export const SocialIcon = styled.a`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    img {
-        width: 24px;
-        height: 24px;
-        filter: drop-shadow(0 0 10px ${({ theme }) => theme.highlight}); /* normal glow */
-        transition: filter 0.3s ease, transform 0.3s ease;
-        z-index: 1;
-    }
+  svg {
+    width: 24px;
+    height: 24px;
+    color: ${({ theme }) => theme.text};
+    transition: fill 0.2s ease;
+  }
 
-    
-
-    &:hover {
-        &::before {
-            background: ${({ theme }) => theme.accent}; /* circle color on hover */
-            opacity: 0.2;
-            box-shadow: 0 0 15px ${({ theme }) => theme.accent}; /* glow */
-        }
-
-        img {
-            filter: drop-shadow(0 0 15px ${({ theme }) => theme.accent}); /* icon glow */
-            transform: scale(1.1);
-            filter: invert(1); /* icon turns white */
-        }
-    }
+  &:hover svg {
+    color: ${({ theme }) => theme.accent}
+  }
 `;

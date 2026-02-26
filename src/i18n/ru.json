@@ -71,8 +71,10 @@
     "namePlaceholder": "Михаил Скотт",
     "emailPlaceholder": "worldsbestboss@gmail.com",
     "messagePlaceholder": "Пожалуйста, напишите сообщение здесь",
-    "orField": "или",
-    "linkedInMessage": "Свяжитесь со мной через LinkedIn"
+    "description": "Есть проект на примете? Давайте поработаем вместе!",
+    "contactLocationLabel": "Локация:",
+    "contactLocation": "Сумы, Украина",
+    "contactLinksLabel": "Ссылки: "
   },
   "projects": {
     "title": "Мои Проекты",
@@ -92,5 +94,8 @@
       "description": "WebStudio демонстрирует услуги компании, подчеркивает навыки команды и показывает завершенные проекты для потенциальных клиентов.",
       "type": "Личный проект"
     }
+  },
+  "footer": {
+    "message": "Halyna Hryn. Все права защищены."
   }
 }

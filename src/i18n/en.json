@@ -71,12 +71,10 @@
     "namePlaceholder": "Michael Scott",
     "emailPlaceholder": "worldsbestboss@gmail.com",
     "messagePlaceholder": "Please write your message here",
-    "orField": "or",
-    "linkedInMessage": "Contact me through ",
     "description": "Have a project in mind? Let's work together!",
-    "contactLocationLabel":"Location:",
+    "contactLocationLabel":"Location: ",
     "contactLocation":"Sumy, Ukraine",
-    "contactLinksLabel": "Links"
+    "contactLinksLabel": "Links: "
   },
   "projects": {
     "title": "My Projects",
@@ -96,5 +94,8 @@
       "description": "WebStudio showcases company services, highlights team skills, and presents completed projects for potential clients.",
       "type": "Personal project"
     }
+  },
+  "footer": {
+    "message": "Halyna Hryn. All rights reserved."
   }
 }
