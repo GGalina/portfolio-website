@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import { media } from "../../styles/themes";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { media } from '../../styles/themes';
 
 export const Container = styled.div`
   width: 100%;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   @media ${media.tablet} {
     padding: 20px 30px;
   }
-  
+
   @media ${media.mobile} {
     padding: 20px 16px;
   }
@@ -66,14 +66,16 @@ export const Card = styled(motion.div)`
   border-radius: 16px;
   padding: 16px;
   box-shadow: ${({ theme }) => theme.navShadow};
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   width: 100%;
   max-width: 300px;
   min-height: 300px;
 
   &:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 20px ${({ theme }) => theme.highlight + "66"};
+    box-shadow: 0 8px 20px ${({ theme }) => theme.highlight + '66'};
   }
 `;
 
@@ -130,7 +132,9 @@ export const IconLink = styled.a`
   height: 26px;
   border-radius: 50%;
   background: ${({ theme }) => theme.highlight};
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 
   img {
     width: 15px;
@@ -148,7 +152,7 @@ export const HoverContent = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 16px 0  16px 0;
+  margin: 16px 0 16px 0;
   text-align: center;
   background: ${({ theme }) => theme.body};
   padding: 0 7px;
@@ -156,7 +160,9 @@ export const HoverContent = styled.div`
   border-bottom-right-radius: 16px;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+  transition:
+    opacity 0.6s ease 0.2s,
+    transform 0.6s ease 0.2s;
   z-index: 1;
   overflow: hidden;
 

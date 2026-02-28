@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import { media } from "../../styles/themes";
+import styled, { keyframes } from 'styled-components';
+import { media } from '../../styles/themes';
 
 interface InputProps {
   $hasError?: boolean;
@@ -65,7 +65,6 @@ export const ContactLabel = styled.p`
   font-weight: 500;
   font-size: 18px;
   color: ${({ theme }) => theme.text};
-
 `;
 
 export const Contacts = styled.p`
@@ -86,7 +85,6 @@ export const Form = styled.form`
   border-radius: 16px;
   padding: 30px;
   border: 1px solid ${({ theme }) => theme.primary};
-  
 
   @media ${media.tablet} {
     width: 50%;
@@ -118,8 +116,7 @@ export const Label = styled.label`
 export const Input = styled.input<InputProps>`
   padding: 13px 16px;
   font-size: 16px;
-  border: 2px solid
-    ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
+  border: 2px solid ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   border-radius: 8px;
@@ -128,8 +125,7 @@ export const Input = styled.input<InputProps>`
   border: 1px solid ${({ theme }) => theme.primary};
 
   &:focus {
-    border-color: ${({ $hasError, theme }) =>
-      $hasError ? theme.error : theme.accent};
+    border-color: ${({ $hasError, theme }) => ($hasError ? theme.error : theme.accent)};
   }
 
   &::placeholder {
@@ -141,8 +137,7 @@ export const Input = styled.input<InputProps>`
 export const Textarea = styled.textarea<InputProps>`
   padding: 13px 16px;
   font-size: 16px;
-  border: 2px solid
-    ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
+  border: 2px solid ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   border-radius: 8px;
@@ -152,8 +147,7 @@ export const Textarea = styled.textarea<InputProps>`
   transition: all 0.3s ease;
 
   &:focus {
-    border-color: ${({ $hasError, theme }) =>
-      $hasError ? theme.error : theme.accent};
+    border-color: ${({ $hasError, theme }) => ($hasError ? theme.error : theme.accent)};
   }
 
   &::placeholder {
@@ -175,7 +169,9 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.text};
   border: solid 1px ${({ theme }) => theme.accent};
   font-family: 'Roboto', sans-serif;
-  transition: all 0.3s ease, transform 0.2s ease;
+  transition:
+    all 0.3s ease,
+    transform 0.2s ease;
 
   &:hover:not(:disabled) {
     background: ${({ theme }) => theme.highlight};
@@ -225,6 +221,6 @@ export const SocialIcon = styled.a`
   }
 
   &:hover svg {
-    color: ${({ theme }) => theme.accent}
+    color: ${({ theme }) => theme.accent};
   }
 `;

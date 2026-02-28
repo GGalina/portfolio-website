@@ -1,4 +1,4 @@
-declare module "project" {
+declare module 'project' {
   export interface Project {
     id: number;
     title: string;
@@ -9,4 +9,4 @@ declare module "project" {
     github: string;
     live: string;
   }
-};
+}

@@ -1,19 +1,14 @@
-import React, { useState, useMemo, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  LanguageWrapper,
-  LanguageButton,
-  Dropdown,
-  DropdownItem,
-} from "./LanguageToggle.styles";
-import { useClickOutside } from "../../hooks/useClickOutside";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import React, { useState, useMemo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
+import { LanguageWrapper, LanguageButton, Dropdown, DropdownItem } from './LanguageToggle.styles';
+import { useClickOutside } from '../../hooks/useClickOutside';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 const languages = [
-  { code: "en", label: "EN" },
-  { code: "ua", label: "UA" },
-  { code: "ru", label: "RU" },
+  { code: 'en', label: 'EN' },
+  { code: 'ua', label: 'UA' },
+  { code: 'ru', label: 'RU' },
 ];
 
 const LanguageToggle: React.FC = () => {
@@ -21,10 +16,7 @@ const LanguageToggle: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   // Persist language in localStorage
-  const [storedLanguage, setStoredLanguage] = useLocalStorage<string>(
-    "language",
-    "en"
-  );
+  const [storedLanguage, setStoredLanguage] = useLocalStorage<string>('language', 'en');
 
   // Apply stored language once i18n is ready
   useEffect(() => {
@@ -46,17 +38,13 @@ const LanguageToggle: React.FC = () => {
   const wrapperRef = useClickOutside<HTMLDivElement>(() => setOpen(false));
 
   const currentLanguage = useMemo(
-    () =>
-      languages.find((lang) => lang.code === i18n.resolvedLanguage)?.label ??
-      "EN",
+    () => languages.find((lang) => lang.code === i18n.resolvedLanguage)?.label ?? 'EN',
     [i18n.resolvedLanguage]
   );
 
   return (
     <LanguageWrapper ref={wrapperRef}>
-      <LanguageButton onClick={toggleDropdown}>
-        {currentLanguage}
-      </LanguageButton>
+      <LanguageButton onClick={toggleDropdown}>{currentLanguage}</LanguageButton>
 
       <AnimatePresence>
         {open && (
@@ -68,10 +56,7 @@ const LanguageToggle: React.FC = () => {
             transition={{ duration: 0.2 }}
           >
             {languages.map((lang) => (
-              <DropdownItem
-                key={lang.code}
-                onClick={() => handleChangeLanguage(lang.code)}
-              >
+              <DropdownItem key={lang.code} onClick={() => handleChangeLanguage(lang.code)}>
                 {lang.label}
               </DropdownItem>
             ))}

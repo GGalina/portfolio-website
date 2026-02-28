@@ -41,11 +41,7 @@
         "info": "2023"
       }
     ],
-    "languages": [
-      "English – Advanced",
-      "Ukrainian – Native",
-      "Russian – Native"
-    ]
+    "languages": ["English – Advanced", "Ukrainian – Native", "Russian – Native"]
   },
   "skills": {
     "title": "Skills",
@@ -72,8 +68,8 @@
     "emailPlaceholder": "worldsbestboss@gmail.com",
     "messagePlaceholder": "Please write your message here",
     "description": "Have a project in mind? Let's work together!",
-    "contactLocationLabel":"Location: ",
-    "contactLocation":"Sumy, Ukraine",
+    "contactLocationLabel": "Location: ",
+    "contactLocation": "Sumy, Ukraine",
     "contactLinksLabel": "Links: "
   },
   "projects": {

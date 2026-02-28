@@ -1,12 +1,12 @@
-import React, { useRef } from "react";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-import Home from "../../pages/Home/Home";
-import About from "../../pages/About/About";
-import Skills from "../../pages/Skills/Skills";
-import Projects from "../../pages/Projects/Projects";
-import Contact from "../../pages/Contact/Contact";
-import { SectionRefs } from "../../types/sections";
+import React, { useRef } from 'react';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
+import Home from '../../pages/Home/Home';
+import About from '../../pages/About/About';
+import Skills from '../../pages/Skills/Skills';
+import Projects from '../../pages/Projects/Projects';
+import Contact from '../../pages/Contact/Contact';
+import { SectionRefs } from '../../types/sections';
 
 const Layout: React.FC = () => {
   // Section refs for smooth scrolling
@@ -29,11 +29,21 @@ const Layout: React.FC = () => {
       <Navbar sectionRefs={sectionRefs} />
 
       <main>
-        <section id="hero" ref={homeRef}><Home /></section>
-        <section id="about" ref={aboutRef}><About /></section>
-        <section id="skills" ref={skillsRef}><Skills /></section>
-        <section id="projects" ref={projectsRef}><Projects /></section>
-        <section id="contact" ref={contactRef}><Contact /></section>
+        <section id="hero" ref={homeRef}>
+          <Home />
+        </section>
+        <section id="about" ref={aboutRef}>
+          <About />
+        </section>
+        <section id="skills" ref={skillsRef}>
+          <Skills />
+        </section>
+        <section id="projects" ref={projectsRef}>
+          <Projects />
+        </section>
+        <section id="contact" ref={contactRef}>
+          <Contact />
+        </section>
       </main>
 
       <Footer />

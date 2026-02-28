@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   AboutWrapper,
   Title,
@@ -8,7 +8,7 @@ import {
   TabButton,
   TabContent,
   Issuer,
-} from "./About.styles";
+} from './About.styles';
 
 // --- Types ---
 type TabDef = { key: string; label: string };
@@ -25,30 +25,30 @@ type AboutType = {
 // --- Component ---
 const About: React.FC = () => {
   const { t } = useTranslation();
-  const about = t("about", { returnObjects: true }) as AboutType;
+  const about = t('about', { returnObjects: true }) as AboutType;
 
   // Normalize tabs
   const normalizedTabs: TabDef[] = useMemo(() => {
     const raw = about?.tabs;
     if (!raw) return [];
-    return (raw as any[]).flatMap((tab) => {
-      if (typeof tab === "string") return [{ key: tab.toLowerCase(), label: tab }];
-      if (tab && typeof tab === "object" && "key" in tab && "label" in tab)
+    return (raw as unknown[]).flatMap((tab) => {
+      if (typeof tab === 'string') return [{ key: tab.toLowerCase(), label: tab }];
+      if (tab && typeof tab === 'object' && 'key' in tab && 'label' in tab)
         return [{ key: String(tab.key), label: String(tab.label) }];
       return [];
     });
   }, [about?.tabs]);
 
-  const [activeTab, setActiveTab] = useState<string>(normalizedTabs[0]?.key ?? "education");
+  const [activeTab, setActiveTab] = useState<string>(normalizedTabs[0]?.key ?? 'education');
 
   useEffect(() => {
     if (!normalizedTabs.some((t) => t.key === activeTab)) {
-      setActiveTab(normalizedTabs[0]?.key ?? "education");
+      setActiveTab(normalizedTabs[0]?.key ?? 'education');
     }
   }, [normalizedTabs, activeTab]);
 
   // --- Renderers ---
-  const renderEducation = (edu: AboutType["education"]) => {
+  const renderEducation = (edu: AboutType['education']) => {
     if (!edu) return null;
     return (
       <div className="mb-4">
@@ -59,7 +59,7 @@ const About: React.FC = () => {
     );
   };
 
-  const renderCertificates = (certs: AboutType["certificates"]) => {
+  const renderCertificates = (certs: AboutType['certificates']) => {
     if (!certs) return null;
     return certs.map((c, i) => (
       <div key={i} className="mb-4">
@@ -70,7 +70,7 @@ const About: React.FC = () => {
     ));
   };
 
-  const renderLanguages = (langs: AboutType["languages"]) => {
+  const renderLanguages = (langs: AboutType['languages']) => {
     if (!langs) return null;
     return langs.map((l, i) => <div key={i}>{l}</div>);
   };
@@ -100,9 +100,9 @@ const About: React.FC = () => {
 
       {/* Tab content */}
       <TabContent>
-        {activeTab === "education" && renderEducation(about.education)}
-        {activeTab === "certificates" && renderCertificates(about.certificates)}
-        {activeTab === "languages" && renderLanguages(about.languages)}
+        {activeTab === 'education' && renderEducation(about.education)}
+        {activeTab === 'certificates' && renderCertificates(about.certificates)}
+        {activeTab === 'languages' && renderLanguages(about.languages)}
       </TabContent>
     </AboutWrapper>
   );

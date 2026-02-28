@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { media } from "../../styles/themes";
+import styled from 'styled-components';
+import { media } from '../../styles/themes';
 
 export const SkillsContainer = styled.div`
   display: flex;
@@ -7,9 +7,9 @@ export const SkillsContainer = styled.div`
   padding: 20px 50px;
 
   @media ${media.tablet} {
-      padding: 20px 30px;
-    }
-  
+    padding: 20px 30px;
+  }
+
   @media ${media.mobile} {
     padding: 20px 16px;
   }
@@ -31,7 +31,7 @@ export const TechnologiesWrapper = styled.div`
 
 export const TechRow = styled.div`
   display: flex;
-  gap: 24px; 
+  gap: 24px;
 
   @media ${media.tablet} {
     flex-direction: column;
@@ -39,27 +39,26 @@ export const TechRow = styled.div`
 `;
 
 export const TechColumn = styled.div`
-  flex: 1; 
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px; 
+  gap: 16px;
 `;
 
 export const SkillSection = styled.div`
   background: ${({ theme }) => theme.secondbackground};
-  padding: 20px 40px; 
+  padding: 20px 40px;
   border-radius: 12px;
   box-shadow: ${({ theme }) => theme.navShadow};
 
   @media ${media.fromTablet} {
     min-height: 100%;
   }
-
 `;
 
 export const TechSection = styled.h4`
   font-weight: 600;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   color: ${({ theme }) => theme.thirdtext};
   text-align: center;
 `;
@@ -67,7 +66,7 @@ export const TechSection = styled.h4`
 export const SkillIcons = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 12px; 
+  gap: 12px;
 `;
 
 export const TechIcon = styled.div`
@@ -76,19 +75,19 @@ export const TechIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; 
+  position: relative;
 
   svg {
     width: 100%;
     height: 100%;
     display: block;
   }
-   &::after {
+  &::after {
     content: attr(data-label); // use data-label for tooltip text
     position: absolute;
-    bottom: 100%; 
+    bottom: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(-8px); 
+    transform: translateX(-50%) translateY(-8px);
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.thirdtext};
     padding: 4px 8px;
@@ -98,7 +97,9 @@ export const TechIcon = styled.div`
     box-shadow: ${({ theme }) => theme.navShadow};
     opacity: 0; // hidden by default
     pointer-events: none;
-    transition: opacity 0.2s, transform 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
     z-index: 10;
   }
 

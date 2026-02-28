@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import { media } from "../../styles/themes";
+import styled from 'styled-components';
+import { media } from '../../styles/themes';
 
 export const AboutWrapper = styled.div`
   padding: 20px 50px;
   background: ${({ theme }) => theme.background};
 
   @media ${media.tablet} {
-      padding: 20px 30px;
-    }
-  
+    padding: 20px 30px;
+  }
+
   @media ${media.mobile} {
     padding: 20px 16px;
   }
@@ -28,7 +28,7 @@ export const Title = styled.h2`
 
 export const Description = styled.ul`
   margin-bottom: 32px;
-  padding-left: 20px; 
+  padding-left: 20px;
   list-style: disc;
 
   li {
@@ -44,7 +44,7 @@ export const Description = styled.ul`
 
   li::marker {
     color: ${({ theme }) => theme.highlight};
-    font-weight: bold; 
+    font-weight: bold;
   }
 
   @media ${media.tablet} {

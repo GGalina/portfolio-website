@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
   width: 100%;
@@ -10,7 +10,9 @@ export const FooterContainer = styled.footer`
   position: relative;
   background: ${({ theme }) => theme.background};
   box-shadow: ${({ theme }) => theme.navShadow};
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
 `;
 
 export const FooterText = styled.p`
@@ -27,4 +29,3 @@ export const FooterText = styled.p`
     -webkit-text-fill-color: transparent;
   }
 `;
-

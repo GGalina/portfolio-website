@@ -1,10 +1,10 @@
-import { RefObject } from "react";
+import { RefObject } from 'react';
 
 export function useScrollToSection() {
-    const scrollTo = (ref: RefObject<HTMLElement | null>) => {
-        if (ref.current) {
-            ref.current.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-    return scrollTo;
+  const scrollTo = (ref: RefObject<HTMLElement | null>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  return scrollTo;
 }

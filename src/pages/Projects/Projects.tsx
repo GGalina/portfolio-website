@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
   Container,
   Title,
@@ -16,11 +16,11 @@ import {
   Description,
   TechList,
   TechItem,
-} from "./Projects.styles";
+} from './Projects.styles';
 
-import GitHubIcon from "../../assets/techSvg/Utills/github.svg";
-import WebsiteIcon from "../../assets/techSvg/www.svg";
-import myProjects from "../../data/projects";
+import GitHubIcon from '../../assets/techSvg/Utills/github.svg';
+import WebsiteIcon from '../../assets/techSvg/www.svg';
+import myProjects from '../../data/projects';
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -32,31 +32,19 @@ const Projects: React.FC = () => {
       exit={{ y: -50, opacity: 0 }}
     >
       <Container>
-        <Title>{t("projects.title")}</Title>
+        <Title>{t('projects.title')}</Title>
         <ProjectList>
           {myProjects.map((project) => (
             <Card key={project.id}>
               <CardContent>
-                <ProjectImage
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                />
+                <ProjectImage src={project.image} alt={project.title} loading="lazy" />
                 <ProjectName>{project.title}</ProjectName>
                 <ProjectType>{t(project.typeKey)}</ProjectType>
                 <Icons>
-                  <IconLink
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <IconLink href={project.github} target="_blank" rel="noopener noreferrer">
                     <img src={GitHubIcon} alt="GitHub" />
                   </IconLink>
-                  <IconLink
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <IconLink href={project.live} target="_blank" rel="noopener noreferrer">
                     <img src={WebsiteIcon} alt="Website" />
                   </IconLink>
                 </Icons>

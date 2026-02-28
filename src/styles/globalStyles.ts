@@ -1,13 +1,13 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 // Import Roboto font files
-import RobotoBlack from "../assets/fonts/Roboto-Black.ttf";
-import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
-import RobotoRegular from "../assets/fonts/Roboto-Regular.ttf";
-import RobotoItalic from "../assets/fonts/Roboto-Italic.ttf";
-import RobotoLight from "../assets/fonts/Roboto-Light.ttf";
-import RobotoThin from "../assets/fonts/Roboto-Thin.ttf";
-import RobotoSemiBold from "../assets/fonts/Roboto-SemiBold.ttf";
+import RobotoBlack from '../assets/fonts/Roboto-Black.ttf';
+import RobotoBold from '../assets/fonts/Roboto-Bold.ttf';
+import RobotoRegular from '../assets/fonts/Roboto-Regular.ttf';
+import RobotoItalic from '../assets/fonts/Roboto-Italic.ttf';
+import RobotoLight from '../assets/fonts/Roboto-Light.ttf';
+import RobotoThin from '../assets/fonts/Roboto-Thin.ttf';
+import RobotoSemiBold from '../assets/fonts/Roboto-SemiBold.ttf';
 
 export const GlobalStyle = createGlobalStyle`
   /* Register Roboto font variations */

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import { media } from "../../styles/themes";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { media } from '../../styles/themes';
 
 export const Container = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ export const RightSide = styled.div`
   position: relative;
 
   @media ${media.mobile} {
-    display: none; 
+    display: none;
   }
 `;
 
@@ -61,7 +61,7 @@ export const Title = styled.h1`
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  
+
   @media ${media.tablet} {
     font-size: 36px;
   }
@@ -138,7 +138,9 @@ export const CTAButton = styled.button`
   color: ${({ theme }) => theme.text};
   border: solid 1px ${({ theme }) => theme.accent};
   font-family: 'Roboto', sans-serif;
-  transition: all 0.3s ease, transform 0.2s ease;
+  transition:
+    all 0.3s ease,
+    transform 0.2s ease;
 
   &:hover {
     background: ${({ theme }) => theme.highlight};

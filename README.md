@@ -5,14 +5,14 @@ The application supports dark/light theme, multi-language switching, smooth anim
 
 ## ✨ Features
 
-🌙 Dark / Light theme (persisted with localStorage)
-🌍 Multi-language support (i18n, language persisted)
-🧭 Smooth navigation between sections
-🎞 Animations with Framer Motion
-📱 Responsive design for all screen sizes
-✉️ Contact form with validation and API integration
-♻️ Reusable custom hooks
-🧼 Clean, maintainable, and scalable code structure
+* Dark / Light theme (persisted with localStorage)
+* Multi-language support (i18n, language persisted)
+* Smooth navigation between sections
+* Animations with Framer Motion
+* Responsive design for all screen sizes
+* Contact form with validation and API integration
+* Reusable custom hooks
+* Clean, maintainable, and scalable code structure
 
 ## 🛠 Tech Stack
 
@@ -67,30 +67,11 @@ npm start
 ```
 The app will be available at: http://localhost:3000
 
-
-
-
-
-📬 Contact Form
-
-Client-side validation
-
-Accessibility-friendly error handling
-
-Async API request with success/error feedback
-
-📌 Best Practices Followed
-
-Functional components only
-
-Strong typing with TypeScript
-
-Separation of concerns
-
-Minimal and purposeful hooks
-
-No unnecessary re-renders
-
-Clean and readable styling
-
-Accessible markup
+## 📌 Best Practices Followed
+- Functional components only
+- Strong typing with TypeScript
+- Separation of concerns
+- Minimal and purposeful custom hooks
+- No unnecessary re-renders
+- Clean and readable styling
+- ESLint and Prettier for code quality and consistency

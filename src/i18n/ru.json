@@ -41,18 +41,14 @@
         "info": "2023"
       }
     ],
-    "languages": [
-      "Английский – Продвинутый",
-      "Украинский – Родной",
-      "Русский – Родной"
-    ]
+    "languages": ["Английский – Продвинутый", "Украинский – Родной", "Русский – Родной"]
   },
   "skills": {
     "title": "Навыки",
     "techCategories": {
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "utilities": "Инструменты и утилиты"
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "utilities": "Инструменты и утилиты"
     }
   },
   "contactMe": {

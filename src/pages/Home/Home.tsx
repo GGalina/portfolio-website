@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
   Container,
   LeftSide,
@@ -10,7 +10,7 @@ import {
   Tagline,
   CTAGroup,
   CTAButton,
-} from "./Home.styles";
+} from './Home.styles';
 
 const Home: React.FC = () => {
   const { t } = useTranslation();
@@ -23,33 +23,31 @@ const Home: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Title>{t("hero.title")}</Title>
-          <Subtitle>{t("hero.subtitle")}</Subtitle>
-          <Tagline>{t("hero.tagline")}</Tagline>
+          <Title>{t('hero.title')}</Title>
+          <Subtitle>{t('hero.subtitle')}</Subtitle>
+          <Tagline>{t('hero.tagline')}</Tagline>
 
           <CTAGroup>
             <CTAButton
               onClick={() =>
-                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
               }
             >
-              {t("hero.projectsBtn")}
+              {t('hero.projectsBtn')}
             </CTAButton>
 
             <CTAButton
               onClick={() =>
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
               }
             >
-              {t("hero.contactBtn")}
+              {t('hero.contactBtn')}
             </CTAButton>
           </CTAGroup>
         </motion.div>
       </LeftSide>
 
-      <RightSide>
-        {/* Add animated skill icons / illustration */}
-      </RightSide>
+      <RightSide>{/* Add animated skill icons / illustration */}</RightSide>
     </Container>
   );
 };
