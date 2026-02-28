@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -7,10 +7,8 @@ import {
   Dropdown,
   DropdownItem,
 } from "./LanguageToggle.styles";
-
-interface LanguageToggleProps {
-  $isDark: boolean;
-}
+import { useClickOutside } from "../../hooks/useClickOutside";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 const languages = [
   { code: "en", label: "EN" },
@@ -18,37 +16,45 @@ const languages = [
   { code: "ru", label: "RU" },
 ];
 
-const LanguageToggle: React.FC<LanguageToggleProps> = ({ $isDark }) => {
-  const { i18n } = useTranslation();
+const LanguageToggle: React.FC = () => {
+  const { i18n, ready } = useTranslation(); // ready ensures i18n is initialized
   const [open, setOpen] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  // Persist language in localStorage
+  const [storedLanguage, setStoredLanguage] = useLocalStorage<string>(
+    "language",
+    "en"
+  );
+
+  // Apply stored language once i18n is ready
+  useEffect(() => {
+    if (!ready) return;
+    if (storedLanguage && storedLanguage !== i18n.resolvedLanguage) {
+      i18n.changeLanguage(storedLanguage);
+    }
+  }, [ready, i18n, storedLanguage]);
 
   const toggleDropdown = () => setOpen((prev) => !prev);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
-      setOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   const handleChangeLanguage = (code: string) => {
     i18n.changeLanguage(code);
+    setStoredLanguage(code);
     setOpen(false);
   };
 
+  // Hook returns a ref that closes the dropdown on outside click
+  const wrapperRef = useClickOutside<HTMLDivElement>(() => setOpen(false));
+
   const currentLanguage = useMemo(
-    () => languages.find((lang) => lang.code === i18n.resolvedLanguage)?.label,
+    () =>
+      languages.find((lang) => lang.code === i18n.resolvedLanguage)?.label ??
+      "EN",
     [i18n.resolvedLanguage]
   );
 
   return (
     <LanguageWrapper ref={wrapperRef}>
-      <LanguageButton onClick={toggleDropdown} $isDark={$isDark}>
+      <LanguageButton onClick={toggleDropdown}>
         {currentLanguage}
       </LanguageButton>
 
@@ -60,13 +66,11 @@ const LanguageToggle: React.FC<LanguageToggleProps> = ({ $isDark }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            $isDark={$isDark} // pass prop to styled-component
           >
             {languages.map((lang) => (
               <DropdownItem
                 key={lang.code}
                 onClick={() => handleChangeLanguage(lang.code)}
-                $isDark={$isDark}
               >
                 {lang.label}
               </DropdownItem>

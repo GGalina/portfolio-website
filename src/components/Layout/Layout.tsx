@@ -7,14 +7,9 @@ import Skills from "../../pages/Skills/Skills";
 import Projects from "../../pages/Projects/Projects";
 import Contact from "../../pages/Contact/Contact";
 import { SectionRefs } from "../../types/sections";
-import { s } from "framer-motion/dist/types.d-Cjd591yU";
 
-interface LayoutProps {
-  toggleTheme: () => void;
-  isDark: boolean;
-}
-
-const Layout: React.FC<LayoutProps> = ({ toggleTheme, isDark }) => {
+const Layout: React.FC = () => {
+  // Section refs for smooth scrolling
   const homeRef = useRef<HTMLElement | null>(null);
   const aboutRef = useRef<HTMLElement | null>(null);
   const skillsRef = useRef<HTMLElement | null>(null);
@@ -31,30 +26,17 @@ const Layout: React.FC<LayoutProps> = ({ toggleTheme, isDark }) => {
 
   return (
     <>
-      <Navbar isDark={isDark} toggleTheme={toggleTheme} sectionRefs={sectionRefs} />
+      <Navbar sectionRefs={sectionRefs} />
 
       <main>
-        <section id="hero" ref={homeRef}>
-          <Home />
-        </section>
-
-        <section id="about" ref={aboutRef}>
-          <About />
-        </section>
-        <section id="skills" ref={skillsRef}>
-          <Skills />
-        </section>
-
-        <section id="projects" ref={projectsRef}>
-          <Projects />
-        </section>
-
-        <section id="contact" ref={contactRef}>
-          <Contact />
-        </section>
+        <section id="hero" ref={homeRef}><Home /></section>
+        <section id="about" ref={aboutRef}><About /></section>
+        <section id="skills" ref={skillsRef}><Skills /></section>
+        <section id="projects" ref={projectsRef}><Projects /></section>
+        <section id="contact" ref={contactRef}><Contact /></section>
       </main>
 
-      <Footer $isDark={isDark} />
+      <Footer />
     </>
   );
 };

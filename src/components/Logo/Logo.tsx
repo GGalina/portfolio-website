@@ -9,7 +9,7 @@ const Logo: React.FC = () => {
 
     return (
         <LogoWrapper onClick={handleClick}>
-            <LogoImage src={logoSrc} alt="Halyna Hryn" />
+            <LogoImage src={logoSrc} alt="Halyna Hryn logo" />
         </LogoWrapper>
     );
 };

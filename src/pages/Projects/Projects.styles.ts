@@ -10,8 +10,8 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.background};
 
   @media ${media.tablet} {
-      padding: 20px 30px;
-    }
+    padding: 20px 30px;
+  }
   
   @media ${media.mobile} {
     padding: 20px 16px;
@@ -42,8 +42,8 @@ export const ProjectList = styled.div`
   > * {
     flex: 1 1 calc((100% - 64px) / 3); // 3 items per row, 64px total gap (2 gaps)
     max-width: 350px; //limits max card size
-     margin-bottom: 40px; // extra space for hover lift
-  transition: transform 0.3s;
+    margin-bottom: 40px; // extra space for hover lift
+    transition: transform 0.3s;
   }
 
   @media ${media.laptop} {
@@ -65,7 +65,7 @@ export const Card = styled(motion.div)`
   background: ${({ theme }) => theme.body};
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.navShadow};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 300px;
@@ -95,9 +95,9 @@ export const CardContent = styled.div`
   position: relative;
   z-index: 2;
 
- ${Card}:hover & {
-  transform: translateY(-45%);
-}
+  ${Card}:hover & {
+    transform: translateY(-45%);
+  }
 `;
 
 export const ProjectName = styled.h3`

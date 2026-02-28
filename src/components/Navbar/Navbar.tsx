@@ -5,15 +5,15 @@ import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import LanguageToggle from "../LanguageToggle/LanguageToggle";
 import { SectionRefs } from "../../types/sections";
 import { Nav, NavLinks, ToggleContainer, NavLinkButton } from "./Navbar.styles";
+import { useScrollToSection } from "../../hooks/useScrollToSection";
 
 interface NavbarProps {
-  isDark: boolean;
-  toggleTheme: () => void;
   sectionRefs: SectionRefs;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme, sectionRefs }) => {
+const Navbar: React.FC<NavbarProps> = ({ sectionRefs }) => {
   const { t } = useTranslation();
+  const scrollToSection = useScrollToSection();
 
   const navItems = [
     { id: "home", label: t("nav.home") },
@@ -23,22 +23,17 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme, sectionRefs }) => 
     { id: "contact", label: t("nav.contact") },
   ];
 
-  // Safe scroll function that handles null refs
-  const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <Nav $isDark={isDark}>
+    <Nav>
       <Logo />
 
       <NavLinks>
         {navItems.map((item) => (
           <NavLinkButton
             key={item.id}
-            onClick={() => scrollToSection(sectionRefs[item.id as keyof SectionRefs])}
+            onClick={() =>
+              scrollToSection(sectionRefs[item.id as keyof SectionRefs])
+            }
           >
             {item.label}
           </NavLinkButton>
@@ -46,8 +41,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme, sectionRefs }) => 
       </NavLinks>
 
       <ToggleContainer>
-        <ThemeToggle $isDark={isDark} toggleTheme={toggleTheme} />
-        <LanguageToggle $isDark={isDark} />
+        <ThemeToggle />
+        <LanguageToggle />
       </ToggleContainer>
     </Nav>
   );

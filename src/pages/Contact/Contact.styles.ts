@@ -1,5 +1,9 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { media } from "../../styles/themes";
+
+interface InputProps {
+  $hasError?: boolean;
+}
 
 export const Section = styled.section`
   padding: 0 50px 50px 50px;
@@ -111,10 +115,6 @@ export const Label = styled.label`
   margin-bottom: 6px;
 `;
 
-interface InputProps {
-  $hasError?: boolean;
-}
-
 export const Input = styled.input<InputProps>`
   padding: 13px 16px;
   font-size: 16px;
@@ -192,15 +192,24 @@ export const Button = styled.button`
   }
 `;
 
-export const Message = styled.span`
-  font-size: 14px;
-  margin-top: 5px;
-  color: ${({ theme }) => theme.secondtext};
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
-export const SocialLinks = styled.div`
-    display: flex;
-    align-items: center;
+export const Message = styled.span`
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: ${({ theme }) => theme.error};
+
+  animation: ${fadeIn} 0.2s ease;
 `;
 
 export const SocialIcon = styled.a`

@@ -9,4 +9,4 @@ declare module "project" {
     github: string;
     live: string;
   }
-}
+};

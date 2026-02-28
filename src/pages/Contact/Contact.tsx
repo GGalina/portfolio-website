@@ -16,9 +16,7 @@ import {
   ContactItem,
   ContactLabel,
   Contacts,
-  SocialLinks,
   SocialIcon,
-
 } from "./Contact.styles";
 import { sendContactForm } from "../../api/contactApi";
 import { ReactComponent as GitHubIcon } from "../../assets/techSvg/github.svg";
@@ -28,6 +26,7 @@ type Status = "idle" | "sending" | "success" | "error";
 
 const ContactMe: React.FC = () => {
   const { t } = useTranslation();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -41,7 +40,6 @@ const ContactMe: React.FC = () => {
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  // Get button text based on status
   const getButtonText = (): string => {
     switch (status) {
       case "sending":
@@ -58,8 +56,8 @@ const ContactMe: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    const newErrors: typeof errors = {};
 
+    const newErrors: typeof errors = {};
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
     const trimmedMessage = message.trim();
@@ -72,26 +70,23 @@ const ContactMe: React.FC = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       setStatus("error");
+
       // Focus first invalid field
       if (newErrors.name) nameRef.current?.focus();
       else if (newErrors.email) emailRef.current?.focus();
       else if (newErrors.message) messageRef.current?.focus();
+
       return;
     }
 
     setErrors({});
 
     try {
-      await sendContactForm({
-        name: trimmedName,
-        email: trimmedEmail,
-        message: trimmedMessage,
-      });
+      await sendContactForm({ name: trimmedName, email: trimmedEmail, message: trimmedMessage });
 
       setName("");
       setEmail("");
       setMessage("");
-
       setStatus("success");
     } catch (err) {
       console.error("Failed to send message", err);
@@ -99,7 +94,7 @@ const ContactMe: React.FC = () => {
     }
   };
 
-  // Auto-reset status after 3 seconds if success or error
+  // Auto-reset status after 3 seconds for success or error
   useEffect(() => {
     if (status === "success" || status === "error") {
       const timer = setTimeout(() => setStatus("idle"), 3000);
@@ -110,9 +105,11 @@ const ContactMe: React.FC = () => {
   return (
     <Section>
       <Title>{t("contactMe.title")}</Title>
+
       <Container>
         <Info>
           <Description>{t("contactMe.description")}</Description>
+
           <ContactItem>
             <ContactLabel>{t("contactMe.contactLocationLabel")}</ContactLabel>
             <Contacts>{t("contactMe.contactLocation")}</Contacts>
@@ -125,77 +122,65 @@ const ContactMe: React.FC = () => {
 
           <ContactItem>
             <ContactLabel>{t("contactMe.contactLinksLabel")}</ContactLabel>
-              <SocialIcon
-                href="https://github.com/GGalina"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GitHubIcon />
-              </SocialIcon>
-
-              <SocialIcon
-                href="https://linkedin.com/in/halyna-hryn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedInIcon />
-              </SocialIcon>
+            <SocialIcon href="https://github.com/GGalina" target="_blank" rel="noopener noreferrer">
+              <GitHubIcon />
+            </SocialIcon>
+            <SocialIcon href="https://linkedin.com/in/halyna-hryn" target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon />
+            </SocialIcon>
           </ContactItem>
         </Info>
 
-                <Form onSubmit={handleSubmit}>
-        <FieldWrapper>
-          <Label htmlFor="name">{t("contactMe.nameField")}</Label>
-          <Input
-            id="name"
-            ref={nameRef}
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            $hasError={!!errors.name}
-            placeholder={t("contactMe.namePlaceholder")}
-            autoComplete="name"
-          />
-          {errors.name && <Message aria-live="polite">{errors.name}</Message>}
-        </FieldWrapper>
+        <Form onSubmit={handleSubmit} noValidate>
+          <FieldWrapper>
+            <Label htmlFor="name">{t("contactMe.nameField")}</Label>
+            <Input
+              id="name"
+              ref={nameRef}
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              $hasError={!!errors.name}
+              placeholder={t("contactMe.namePlaceholder")}
+              autoComplete="name"
+            />
+            {errors.name && <Message aria-live="polite">{errors.name}</Message>}
+          </FieldWrapper>
 
-        <FieldWrapper>
-          <Label htmlFor="email">{t("contactMe.emailField")}</Label>
-          <Input
-            id="email"
-            ref={emailRef}
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            $hasError={!!errors.email}
-            placeholder={t("contactMe.emailPlaceholder")}
-            autoComplete="email"
-          />
-          {errors.email && <Message aria-live="polite">{errors.email}</Message>}
-        </FieldWrapper>
+          <FieldWrapper>
+            <Label htmlFor="email">{t("contactMe.emailField")}</Label>
+            <Input
+              id="email"
+              ref={emailRef}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              $hasError={!!errors.email}
+              placeholder={t("contactMe.emailPlaceholder")}
+              autoComplete="email"
+            />
+            {errors.email && <Message aria-live="polite">{errors.email}</Message>}
+          </FieldWrapper>
 
-        <FieldWrapper>
-          <Label htmlFor="message">{t("contactMe.messageField")}</Label>
-          <Textarea
-            id="message"
-            ref={messageRef}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows={7}
-            $hasError={!!errors.message}
-            placeholder={t("contactMe.messagePlaceholder")}
-            autoComplete="off"
-          />
-          {errors.message && <Message aria-live="polite">{errors.message}</Message>}
-        </FieldWrapper>
+          <FieldWrapper>
+            <Label htmlFor="message">{t("contactMe.messageField")}</Label>
+            <Textarea
+              id="message"
+              ref={messageRef}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              rows={7}
+              $hasError={!!errors.message}
+              placeholder={t("contactMe.messagePlaceholder")}
+              autoComplete="off"
+            />
+            {errors.message && <Message aria-live="polite">{errors.message}</Message>}
+          </FieldWrapper>
 
-        <Button type="submit" disabled={status === "sending"}>
-          {getButtonText()}
-        </Button>
+          <Button type="submit" disabled={status === "sending"}>
+            {getButtonText()}
+          </Button>
         </Form>
-          
-
-
       </Container>
     </Section>
   );

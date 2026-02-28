@@ -1,50 +1,44 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-    ToggleWrapper, 
-    ToggleTrack, 
-    ToggleKnob, 
-    TrackIconLeft, 
-    TrackIconRight 
+import {
+  ToggleWrapper,
+  ToggleTrack,
+  ToggleKnob,
+  TrackIconLeft,
+  TrackIconRight,
 } from "./ThemeToggle.styles";
-
-interface ThemeToggleProps {
-    $isDark: boolean;
-    toggleTheme: () => void;
-}
+import { useTheme } from "../../context/ThemeContext";
 
 const SunIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16" height="16" fill="currentColor">
-        <path d="M210.2 53.9C217.6 50.8 226 51.7 232.7 56.1L320.5 114.3L408.3 56.1C415 51.7 423.4 50.9 430.8 53.9C438.2 56.9 443.4 63.5 445 71.3L465.9 174.5L569.1 195.4C576.9 197 583.5 202.4 586.5 209.7C589.5 217 588.7 225.5 584.3 232.2L526.1 320L584.3 407.8C588.7 414.5 589.5 422.9 586.5 430.3C583.5 437.7 576.9 443.1 569.1 444.6L465.8 465.4L445 568.7C443.4 576.5 438 583.1 430.7 586.1C423.4 589.1 414.9 588.3 408.2 583.9L320.4 525.7L232.6 583.9C225.9 588.3 217.5 589.1 210.1 586.1C202.7 583.1 197.3 576.5 195.8 568.7L175 465.4L71.7 444.5C63.9 442.9 57.3 437.5 54.3 430.2C51.3 422.9 52.1 414.4 56.5 407.7L114.7 320L56.5 232.2C52.1 225.5 51.3 217.1 54.3 209.7C57.3 202.3 63.9 196.9 71.7 195.4L175 174.6L195.9 71.3C197.5 63.5 202.9 56.9 210.2 53.9zM239.6 320C239.6 275.6 275.6 239.6 320 239.6C364.4 239.6 400.4 275.6 400.4 320C400.4 364.4 364.4 400.4 320 400.4C275.6 400.4 239.6 364.4 239.6 320zM448.4 320C448.4 249.1 390.9 191.6 320 191.6C249.1 191.6 191.6 249.1 191.6 320C191.6 390.9 249.1 448.4 320 448.4C390.9 448.4 448.4 390.9 448.4 320z"/>
-    </svg>
+  <svg fill="currentColor" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M12 17.5a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm0 1.5a7 7 0 100-14 7 7 0 000 14zm12-7a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h2.5A.75.75 0 0124 12zM4 12a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h2.5A.75.75 0 014 12zm16.485-8.485a.75.75 0 010 1.06l-1.768 1.768a.75.75 0 01-1.06-1.06l1.767-1.768a.75.75 0 011.061 0zM6.343 17.657a.75.75 0 010 1.06l-1.768 1.768a.75.75 0 11-1.06-1.06l1.767-1.768a.75.75 0 011.061 0zM12 0a.75.75 0 01.75.75v2.5a.75.75 0 01-1.5 0V.75A.75.75 0 0112 0zm0 20a.75.75 0 01.75.75v2.5a.75.75 0 01-1.5 0v-2.5A.75.75 0 0112 20zM3.515 3.515a.75.75 0 011.06 0l1.768 1.768a.75.75 0 11-1.06 1.06L3.515 4.575a.75.75 0 010-1.06zm14.142 14.142a.75.75 0 011.06 0l1.768 1.768a.75.75 0 01-1.06 1.06l-1.768-1.767a.75.75 0 010-1.061z"/>
+  </svg>
 );
 
 const MoonIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16" height="16"fill="currentColor">
-        <path d="M320 80C338.3 80 356 82 373.1 85.9C376.4 86.6 378.9 89.4 379.3 92.7C379.7 96 378 99.3 374.9 100.8C309.1 133.6 264 201.5 264 279.9C264 395.4 365.4 488.4 480.1 479.3C483.5 479 486.6 480.9 488 484C489.4 487.1 488.7 490.7 486.2 493C443.1 534.5 384.5 560 320 560C187.5 560 80 452.5 80 320C80 187.5 187.5 80 320 80zM320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576C388.8 576 451.3 548.8 497.3 504.6C504.6 497.6 506.7 486.7 502.6 477.5C498.5 468.3 488.9 462.6 478.8 463.4C373.4 471.8 280 386.1 280 280C280 207.9 321.5 145.4 382.1 115.2C391.2 110.7 396.4 100.9 395.2 90.8C394 80.7 386.6 72.5 376.7 70.3C358.4 66.2 339.4 64 320 64z"/>
-    </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="16" height="16" fill="currentColor">
+    <path d="M320 80C338.3 80 356 82 373.1 85.9C376.4 86.6 378.9 89.4 379.3 92.7C379.7 96 378 99.3 374.9 100.8C309.1 133.6 264 201.5 264 279.9C264 395.4 365.4 488.4 480.1 479.3C483.5 479 486.6 480.9 488 484C489.4 487.1 488.7 490.7 486.2 493C443.1 534.5 384.5 560 320 560C187.5 560 80 452.5 80 320C80 187.5 187.5 80 320 80z" />
+  </svg>
 );
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ $isDark, toggleTheme }) => {
-    return (
-        <ToggleWrapper onClick={toggleTheme}>
-            <ToggleTrack $isDark={$isDark}>
-                <TrackIconLeft>
-                    {$isDark ? <MoonIcon /> : null}
-                </TrackIconLeft>
-                <TrackIconRight>
-                    {!$isDark ? <SunIcon /> : null}
-                </TrackIconRight>
+const ThemeToggle: React.FC = () => {
+  const { isDark, toggleTheme } = useTheme();
 
-                <motion.div
-                    animate={{ x: $isDark ? 30 : 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                >
-                    <ToggleKnob $isDark={$isDark} />
-                </motion.div>
-            </ToggleTrack>
-        </ToggleWrapper>
-    );
+  return (
+    <ToggleWrapper onClick={toggleTheme}>
+      <ToggleTrack>
+        <TrackIconLeft>{isDark && <MoonIcon />}</TrackIconLeft>
+        <TrackIconRight>{!isDark && <SunIcon />}</TrackIconRight>
+
+        <motion.div
+          animate={{ x: isDark ? 30 : 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        >
+          <ToggleKnob />
+        </motion.div>
+      </ToggleTrack>
+    </ToggleWrapper>
+  );
 };
 
 export default ThemeToggle;

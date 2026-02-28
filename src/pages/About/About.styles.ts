@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../styles/themes";
 
-interface TabButtonProps {
-  $active?: boolean;
-}
-
 export const AboutWrapper = styled.div`
   padding: 20px 50px;
   background: ${({ theme }) => theme.background};

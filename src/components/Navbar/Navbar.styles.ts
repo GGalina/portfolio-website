@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-interface NavbarProps {
-  $isDark?: boolean;
-}
-
-export const Nav = styled.nav<{ $isDark: boolean }>`
+export const Nav = styled.nav`
   width: 100%;
   height: 70px;
   display: flex;
@@ -12,8 +8,7 @@ export const Nav = styled.nav<{ $isDark: boolean }>`
   justify-content: space-between;
   padding: 0 40px;
   background: ${({ theme }) => theme.background};
-  box-shadow: ${({ $isDark }) =>
-    $isDark ? "0 2px 4px rgba(0,0,0,0.5)" : "0 2px 4px rgba(0,0,0,0.1)"};
+  box-shadow: ${({ theme }) => theme.navShadow};
   position: fixed;
   top: 0;
   z-index: 999;

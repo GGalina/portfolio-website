@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../styles/themes";
 
-interface TabButtonProps {
-  $active?: boolean;
-}
-
 export const SkillsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,10 +46,10 @@ export const TechColumn = styled.div`
 `;
 
 export const SkillSection = styled.div`
-  background-color: ${({ theme }) => theme.secondbackground};
+  background: ${({ theme }) => theme.secondbackground};
   padding: 20px 40px; 
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.navShadow};
 
   @media ${media.fromTablet} {
     min-height: 100%;
@@ -90,16 +86,16 @@ export const TechIcon = styled.div`
    &::after {
     content: attr(data-label); // use data-label for tooltip text
     position: absolute;
-    bottom: 100%; // above the icon
+    bottom: 100%; 
     left: 50%;
-    transform: translateX(-50%) translateY(-8px); // slight gap
+    transform: translateX(-50%) translateY(-8px); 
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.thirdtext};
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 12px;
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: ${({ theme }) => theme.navShadow};
     opacity: 0; // hidden by default
     pointer-events: none;
     transition: opacity 0.2s, transform 0.2s;
@@ -108,6 +104,6 @@ export const TechIcon = styled.div`
 
   &:hover::after {
     opacity: 1; // show on hover
-    transform: translateX(-50%) translateY(65px); // move slightly up
+    transform: translateX(-50%) translateY(65px);
   }
 `;

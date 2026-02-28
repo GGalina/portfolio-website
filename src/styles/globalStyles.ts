@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-// Import your Roboto font files
+// Import Roboto font files
 import RobotoBlack from "../assets/fonts/Roboto-Black.ttf";
 import RobotoBold from "../assets/fonts/Roboto-Bold.ttf";
 import RobotoRegular from "../assets/fonts/Roboto-Regular.ttf";
