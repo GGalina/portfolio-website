@@ -2,27 +2,27 @@ import styled from 'styled-components';
 import { media } from '../../styles/themes';
 
 export const AboutWrapper = styled.div`
-  padding: 20px 50px;
+  padding: 20px 30px;
   background: ${({ theme }) => theme.background};
 
-  @media ${media.tablet} {
-    padding: 20px 30px;
+  @media ${media.fromTablet} {
+    padding: 20px 50px;
   }
 
-  @media ${media.mobile} {
-    padding: 20px 16px;
+  @media ${media.fromLaptop} {
+    padding: 20px 50px;
   }
 `;
 
 export const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 28px;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.text};
 
-  @media ${media.tablet} {
-    font-size: 28px;
+  @media ${media.fromLaptop} {
+    font-size: 36px;
   }
 `;
 
@@ -34,7 +34,7 @@ export const Description = styled.ul`
   li {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 10px;
     padding-left: 10px;
     line-height: 1.6;
@@ -47,9 +47,9 @@ export const Description = styled.ul`
     font-weight: bold;
   }
 
-  @media ${media.tablet} {
+  @media ${media.fromLaptop} {
     li {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 `;

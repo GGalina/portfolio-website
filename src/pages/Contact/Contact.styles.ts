@@ -6,44 +6,67 @@ interface InputProps {
 }
 
 export const Section = styled.section`
-  padding: 0 50px 50px 50px;
+  padding: 0 30px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @media ${media.tablet} {
-    padding: 0 20px 30px 20px;
+  @media ${media.fromTablet} {
+    padding: 0 50px 50px 50px;
   }
 
-  @media ${media.mobile} {
-    padding: 0 16px 24px 16px;
+  @media ${media.fromLaptop} {
+    padding: 0 50px 50px 50px;
   }
 `;
 
 export const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 24px;
   margin-bottom: 20px;
   margin-top: 32px;
   color: ${({ theme }) => theme.text};
 
-  @media ${media.tablet} {
+  @media ${media.fromTablet} {
     font-size: 28px;
   }
 
-  @media ${media.mobile} {
-    font-size: 24px;
+  @media ${media.fromLaptop} {
+    font-size: 36px;
   }
 `;
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  @media ${media.fromTablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  @media ${media.fromLaptop} {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
 `;
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 50%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 100%;
+
+  @media ${media.fromLaptop} {
+    width: 50%;
+    max-width: 400px;
+  }
 `;
 
 export const Description = styled.p`
@@ -78,23 +101,16 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 50%;
-  max-width: 860px;
-  margin: 0 auto;
+  width: 100%;
   background: ${({ theme }) => theme.background};
   border-radius: 16px;
-  padding: 30px;
+  padding: 20px;
   border: 1px solid ${({ theme }) => theme.primary};
 
-  @media ${media.tablet} {
+  @media ${media.fromLaptop} {
     width: 50%;
-    min-width: 475px;
-  }
-
-  @media ${media.mobile} {
-    width: 100%;
-    min-width: 150px;
-    margin: 0;
+    max-width: 860px;
+    padding: 30px;
   }
 `;
 
@@ -116,13 +132,14 @@ export const Label = styled.label`
 export const Input = styled.input<InputProps>`
   padding: 13px 16px;
   font-size: 16px;
-  border: 2px solid ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   border-radius: 8px;
   outline: none;
   transition: all 0.3s ease;
   border: 1px solid ${({ theme }) => theme.primary};
+
+  border-color: ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
 
   &:focus {
     border-color: ${({ $hasError, theme }) => ($hasError ? theme.error : theme.accent)};
@@ -137,7 +154,6 @@ export const Input = styled.input<InputProps>`
 export const Textarea = styled.textarea<InputProps>`
   padding: 13px 16px;
   font-size: 16px;
-  border: 2px solid ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   border-radius: 8px;
@@ -145,6 +161,8 @@ export const Textarea = styled.textarea<InputProps>`
   outline: none;
   resize: vertical;
   transition: all 0.3s ease;
+
+  border-color: ${({ $hasError, theme }) => ($hasError ? theme.error : theme.highlight)};
 
   &:focus {
     border-color: ${({ $hasError, theme }) => ($hasError ? theme.error : theme.accent)};
@@ -157,17 +175,16 @@ export const Textarea = styled.textarea<InputProps>`
 `;
 
 export const Button = styled.button`
-  padding: 12px 100px;
+  width: 100%;
+  padding: 12px 10px;
   font-size: 16px;
   font-weight: 600;
   border-radius: 16px;
-  width: fit-content;
   margin: 0 auto;
-  border: none;
   cursor: pointer;
   background-color: ${({ theme }) => theme.secondtext};
   color: ${({ theme }) => theme.text};
-  border: solid 1px ${({ theme }) => theme.accent};
+  border: 1px solid ${({ theme }) => theme.accent};
   font-family: 'Roboto', sans-serif;
   transition:
     all 0.3s ease,
@@ -183,8 +200,9 @@ export const Button = styled.button`
     cursor: not-allowed;
   }
 
-  @media ${media.mobile} {
-    width: 100%;
+  @media ${media.fromLaptop} {
+    width: fit-content;
+    padding: 12px 100px;
   }
 `;
 
@@ -193,6 +211,7 @@ const fadeIn = keyframes`
     opacity: 0;
     transform: translateY(-2px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -204,7 +223,6 @@ export const Message = styled.span`
   font-size: 12px;
   line-height: 1.3;
   color: ${({ theme }) => theme.error};
-
   animation: ${fadeIn} 0.2s ease;
 `;
 

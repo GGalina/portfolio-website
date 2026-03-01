@@ -4,30 +4,29 @@ import { media } from '../../styles/themes';
 
 export const Container = styled.div`
   width: 100%;
-  padding: 20px 50px;
+  padding: 20px 30px;
   display: flex;
   flex-direction: column;
   background: ${({ theme }) => theme.background};
 
-  @media ${media.tablet} {
-    padding: 20px 30px;
+  @media ${media.fromTablet} {
+    padding: 20px 50px;
   }
 
-  @media ${media.mobile} {
-    padding: 20px 16px;
+  @media ${media.fromLaptop} {
+    padding: 20px 50px;
   }
 `;
 
 export const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 28px;
   margin-bottom: 70px;
-  text-alig
   color: ${({ theme }) => theme.text};
 
-  @media ${media.tablet} {
-    font-size: 28px;
+  @media ${media.fromLaptop} {
+    font-size: 36px;
   }
 `;
 
@@ -37,24 +36,23 @@ export const ProjectList = styled.div`
   justify-content: center;
   gap: 32px;
   width: 100%;
-  max-width: 1200px;
 
   > * {
-    flex: 1 1 calc((100% - 64px) / 3); // 3 items per row, 64px total gap (2 gaps)
-    max-width: 350px; //limits max card size
-    margin-bottom: 40px; // extra space for hover lift
+    flex: 1 1 100%;
+    max-width: 350px;
+    margin-bottom: 40px;
     transition: transform 0.3s;
   }
 
-  @media ${media.laptop} {
+  @media ${media.fromTablet} {
     > * {
-      flex: 1 1 calc((100% - 32px) / 2); // 2 items per row, 32px gap
+      flex: 1 1 calc((100% - 32px) / 2); // 2 columns on tablet
     }
   }
 
-  @media ${media.tablet} {
+  @media ${media.fromLaptop} {
     > * {
-      flex: 1 1 100%; // 1 item per row
+      flex: 1 1 calc((100% - 64px) / 3); // 3 columns on laptop+
     }
   }
 `;
@@ -70,7 +68,6 @@ export const Card = styled(motion.div)`
     transform 0.3s ease,
     box-shadow 0.3s ease;
   width: 100%;
-  max-width: 300px;
   min-height: 300px;
 
   &:hover {
@@ -152,7 +149,7 @@ export const HoverContent = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 16px 0 16px 0;
+  margin: 16px 0;
   text-align: center;
   background: ${({ theme }) => theme.body};
   padding: 0 7px;
@@ -175,8 +172,8 @@ export const HoverContent = styled.div`
 export const Description = styled.p`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  color: ${({ theme }) => theme.text};
   font-size: 14px;
+  color: ${({ theme }) => theme.text};
   margin-bottom: 12px;
 `;
 

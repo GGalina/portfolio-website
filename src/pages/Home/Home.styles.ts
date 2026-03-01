@@ -4,140 +4,145 @@ import { media } from '../../styles/themes';
 
 export const Container = styled.div`
   display: flex;
-  height: 100vh;
-  padding: 0 50px;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  padding: 120px 30px;
   position: relative;
   overflow: hidden;
 
-  @media ${media.tablet} {
-    padding: 120px 30px 30px 50px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
+  @media ${media.fromTablet} {
+    padding: 120px 20px 30px 20px;
   }
 
-  @media ${media.mobile} {
-    padding: 120px 16px;
+  @media ${media.fromLaptop} {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 0 50px;
+    height: 100vh;
   }
 `;
 
 export const LeftSide = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
 
-  @media ${media.tablet} {
-    align-items: flex-start;
-    text-align: center;
+  @media ${media.fromTablet} {
     margin-bottom: 40px;
   }
 
-  @media ${media.mobile} {
-    margin-bottom: 24px;
+  @media ${media.fromLaptop} {
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 0;
+    flex: 1;
   }
 `;
 
 export const RightSide = styled.div`
-  flex: 1;
-  position: relative;
+  display: none;
 
-  @media ${media.mobile} {
-    display: none;
+  @media ${media.fromLaptop} {
+    display: block;
+    flex: 1;
+    position: relative;
   }
 `;
 
 export const Title = styled.h1`
   font-family: 'Roboto', sans-serif;
-  font-size: 48px;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 5px;
-
   background: ${({ theme }) => theme.highlight};
-
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 
-  @media ${media.tablet} {
+  @media ${media.fromTablet} {
     font-size: 36px;
   }
 
-  @media ${media.mobile} {
-    font-size: 28px;
+  @media ${media.fromLaptop} {
+    font-size: 48px;
   }
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
   font-weight: 400;
   margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
   color: ${({ theme }) => theme.primary};
 
-  @media ${media.tablet} {
+  @media ${media.fromTablet} {
     font-size: 20px;
   }
 
-  @media ${media.mobile} {
-    font-size: 18px;
+  @media ${media.fromLaptop} {
+    font-size: 24px;
   }
 `;
 
 export const Tagline = styled.p`
-  font-size: 18px;
-  font-weight: 300;
-  margin-bottom: 40px;
   font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
   line-height: 1.5;
-  max-width: 600px;
+  max-width: 100%;
+  margin-bottom: 24px;
   color: ${({ theme }) => theme.text};
 
-  @media ${media.tablet} {
+  @media ${media.fromTablet} {
     font-size: 16px;
     max-width: 90%;
     margin-bottom: 32px;
   }
 
-  @media ${media.mobile} {
-    font-size: 14px;
-    margin-bottom: 24px;
+  @media ${media.fromLaptop} {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 40px;
   }
 `;
 
 export const CTAGroup = styled.div`
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 12px;
+  align-items: center;
 
-  @media ${media.tablet} {
+  @media ${media.fromTablet} {
+    flex-direction: row;
     justify-content: center;
     gap: 16px;
   }
 
-  @media ${media.mobile} {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-    align-items: center;
+  @media ${media.fromLaptop} {
+    justify-content: flex-start;
+    gap: 20px;
   }
 `;
 
 export const CTAButton = styled.button`
-  padding: 12px 40px;
-  font-size: 16px;
+  padding: 10px 30px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 16px;
-  border: none;
-  cursor: pointer;
+  border: 1px solid ${({ theme }) => theme.accent};
   background-color: ${({ theme }) => theme.secondtext};
   color: ${({ theme }) => theme.text};
-  border: solid 1px ${({ theme }) => theme.accent};
   font-family: 'Roboto', sans-serif;
+  cursor: pointer;
   transition:
     all 0.3s ease,
     transform 0.2s ease;
@@ -147,22 +152,21 @@ export const CTAButton = styled.button`
     transform: scale(1.05);
   }
 
-  @media ${media.tablet} {
+  @media ${media.fromTablet} {
     padding: 10px 32px;
-    font-size: 14px;
   }
 
-  @media ${media.mobile} {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 14px;
+  @media ${media.fromLaptop} {
+    width: auto;
+    padding: 12px 40px;
+    font-size: 16px;
   }
 `;
 
 export const SkillIcon = styled(motion.div)`
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 
   img {
     width: 100%;
@@ -175,13 +179,13 @@ export const SkillIcon = styled(motion.div)`
     filter: drop-shadow(0 0 15px ${({ theme }) => theme.accent});
   }
 
-  @media ${media.tablet} {
+  @media ${media.fromTablet} {
     width: 40px;
     height: 40px;
   }
 
-  @media ${media.mobile} {
-    width: 30px;
-    height: 30px;
+  @media ${media.fromLaptop} {
+    width: 50px;
+    height: 50px;
   }
 `;

@@ -35,10 +35,7 @@ export const breakpoints = {
 };
 
 export const media = {
-  mobile: `(max-width: ${breakpoints.mobile})`,
-  tablet: `(max-width: ${breakpoints.tablet})`,
-  laptop: `(max-width: ${breakpoints.laptop})`,
-
+  fromMobile: `(min-width: ${breakpoints.mobile})`,
   fromTablet: `(min-width: ${breakpoints.tablet})`,
   fromLaptop: `(min-width: ${breakpoints.laptop})`,
 };
