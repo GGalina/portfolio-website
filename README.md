@@ -3,6 +3,8 @@
 A modern, responsive personal portfolio website built with React and TypeScript, showcasing projects, skills, and contact information.
 The application supports dark/light theme, multi-language switching, smooth animations, and a fully functional contact form.
 
+The website is available at: https://halynahryn.pages.dev
+
 ## ✨ Features
 
 * Dark / Light theme (persisted with localStorage)
