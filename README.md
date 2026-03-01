@@ -77,3 +77,4 @@ The app will be available at: http://localhost:3000
 - No unnecessary re-renders
 - Clean and readable styling
 - ESLint and Prettier for code quality and consistency
+- Deployed on Cloudflare.com
