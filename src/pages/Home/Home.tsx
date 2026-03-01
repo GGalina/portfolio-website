@@ -28,13 +28,9 @@ const Home: React.FC = () => {
           <Tagline>{t('hero.tagline')}</Tagline>
 
           <CTAGroup>
-            <CTAButton
-              onClick={() =>
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
-              }
-            >
-              {t('hero.projectsBtn')}
-            </CTAButton>
+            <a href="/Halyna_Hryn_Fullstack_dev.pdf" target="_blank" rel="noopener noreferrer">
+              <CTAButton>{t('hero.cvBtn')}</CTAButton>
+            </a>
 
             <CTAButton
               onClick={() =>
